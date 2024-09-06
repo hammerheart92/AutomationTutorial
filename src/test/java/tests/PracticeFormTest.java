@@ -1,5 +1,6 @@
 package tests;
 
+import helpMethods.ElementMethods;
 import net.bytebuddy.asm.Advice;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -28,12 +29,20 @@ public class PracticeFormTest {
         //Facem browserul maximize
         driver.manage().window().maximize();
 
+        ElementMethods elementMethods = new ElementMethods(driver);
+
+
         WebElement formsMenu = driver.findElement(By.xpath("//h5[text()='Forms']"));
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].click();", formsMenu);
+//        js.executeScript("arguments[0].click();", formsMenu);
+        elementMethods.clickJSElement(formsMenu);
+
+
 
         WebElement practiceFormsSubMenu = driver.findElement(By.xpath("//span[text()='Practice Form']"));
-        js.executeScript("arguments[0].click();", practiceFormsSubMenu);
+//        js.executeScript("arguments[0].click();", practiceFormsSubMenu);
+        elementMethods.clickJSElement(practiceFormsSubMenu);
+
 
         WebElement fistNameElement = driver.findElement(By.id("firstName"));
         String firstNameValue = "Apaczai";
@@ -49,6 +58,7 @@ public class PracticeFormTest {
 
         List<WebElement> genderOptionsList = driver.findElements(By.xpath("//input[@name='gender']"));
         String genderValue = "Male";
+
 
         switch (genderValue) {
             case "Male":
@@ -67,26 +77,26 @@ public class PracticeFormTest {
         numberElement.sendKeys(numberValue);
 
         //date of birth interaction
-        WebElement dateOfBirthElement =driver.findElement(By.id("dateOfBirthInput"));
+        WebElement dateOfBirthElement = driver.findElement(By.id("dateOfBirthInput"));
         dateOfBirthElement.click();
 
         WebElement monthElement = driver.findElement(By.className("react-datepicker__month-select"));
         Select monthSelect = new Select(monthElement);
-        String monthValue ="January";
+        String monthValue = "January";
         monthSelect.selectByVisibleText(monthValue);
 
         WebElement yearElement = driver.findElement(By.className("react-datepicker__year-select"));
         Select yearSelect = new Select(yearElement);
-        String yearValue ="2030";
+        String yearValue = "2030";
         yearSelect.selectByVisibleText(yearValue);
 
-        String dayValue="18";
+        String dayValue = "18";
         List<WebElement> daysList = driver.findElements(By.xpath("//div[@class = 'react-datepicker__month']/div/div[not(contains(@class,'react-datepicker__day--outside-month'))]"));
-        for (int index = 0; index<daysList.size();index++){
-            if (daysList.get(index).getText().equals(dayValue)){
+        for (int index = 0; index < daysList.size(); index++) {
+            if (daysList.get(index).getText().equals(dayValue)) {
                 daysList.get(index).click();
                 break;
-            }                                                                                                                                                                                                                                                                               
+            }
 
         }
 
@@ -119,7 +129,8 @@ public class PracticeFormTest {
         currentAdressElement.sendKeys(currentAdressValue);
 
         WebElement stateElement = driver.findElement(By.xpath("//div[text()='Select State']"));
-        js.executeScript("arguments[0].click();", stateElement);
+//        js.executeScript("arguments[0].click();", stateElement);
+        elementMethods.clickJSElement(stateElement);
 
         WebElement stateInputElement = driver.findElement(By.id("react-select-3-input"));
         String stateInputValue = "Haryana";
@@ -132,7 +143,8 @@ public class PracticeFormTest {
         cityInputElement.sendKeys(Keys.ENTER);
 
         WebElement submitElement = driver.findElement(By.id("submit"));
-        js.executeScript("arguments[0].click();", submitElement);
+//        js.executeScript("arguments[0].click();", submitElement);
+        elementMethods.clickJSElement(submitElement);
 
 
         //validam datele introduse
@@ -165,7 +177,6 @@ public class PracticeFormTest {
         Assert.assertEquals(valuesList.get(7).getText(), pictureElement);
         Assert.assertEquals(valuesList.get(8).getText(), currentAdressValue);
         Assert.assertEquals(valuesList.get(9).getText(), stateInputValue + " " + cityInputValue);
-
 
 
     }

@@ -1,5 +1,6 @@
 package tests;
 
+import helpMethods.ElementMethods;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -26,15 +27,16 @@ public class WebTableTest {
         driver.get("https://demoqa.com/");
         //Facem browserul maximize
         driver.manage().window().maximize();
+        ElementMethods elementMethods = new ElementMethods(driver);
 
         WebElement elementsMenu = driver.findElement(By.xpath("//h5[text()='Elements']"));
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].click();", elementsMenu);
+        elementMethods.clickJSElement(elementsMenu);
 
         //span[text()='Web Tables']
 
         WebElement webTableSubMenu = driver.findElement(By.xpath("//span[text()='Web Tables']"));
-        js.executeScript("arguments[0].click();", webTableSubMenu);
+        elementMethods.clickJSElement(webTableSubMenu);
 
         //validam dimenisunea initiala a tabelului
 
@@ -45,7 +47,7 @@ public class WebTableTest {
 
         //Definim un element (Denumirea sa fie de preferat ca pe site)
         WebElement addElement = driver.findElement(By.id("addNewRecordButton"));
-        addElement.click();
+        elementMethods.clickElement(addElement);
 
         WebElement firstNameElement = driver.findElement(By.id("firstName"));
         String firstNameValue = "Apaczai";
@@ -78,12 +80,8 @@ public class WebTableTest {
         departmentElement.sendKeys(departmentValue);
         //Scriem din departmentElement valoarea din departmentValue
 
-
         WebElement submitElement = driver.findElement(By.id("submit"));
-        submitElement.click();
-
-
-
+        elementMethods.clickElement(submitElement);
 
         //validam noua dimensiune al tabelului
 
@@ -101,11 +99,10 @@ public class WebTableTest {
         Assert.assertTrue(rowContent.contains(salaryValue), "The last row doesn't contain salary value.");
         Assert.assertTrue(rowContent.contains(departmentValue), "The last row doesn't contain department value.");
 
-
         //edit functionality
 
         WebElement editElement = driver.findElement(By.id("edit-record-4"));
-        js.executeScript("arguments[0].click();", editElement);
+        elementMethods.clickJSElement(editElement);
         //Il folosim ca si un javaScript executor
 
         WebElement editFirstNameElement = driver.findElement(By.id("firstName"));
@@ -127,7 +124,6 @@ public class WebTableTest {
         editEmailElement.clear();
         editEmailElement.sendKeys(editEmailValue);
 
-
         WebElement editSalaryElement = driver.findElement(By.id("salary"));
         String editSalaryValue = "4500";
         editSalaryElement.clear();
@@ -139,7 +135,7 @@ public class WebTableTest {
         editDepartmentElement.sendKeys(editDepartmentValue);
 
         WebElement editSubmitElement = driver.findElement(By.id("submit"));
-        editSubmitElement.click();
+        elementMethods.clickElement(editSubmitElement);
 
         //validam valoriile modificate din tabel
 
@@ -151,20 +147,18 @@ public class WebTableTest {
         Assert.assertTrue(rowContent.contains(editSalaryValue), "The last row doesn't contain salary value.");
         Assert.assertTrue(rowContent.contains(editDepartmentValue), "The last row doesn't contain department value.");
 
-
         //Function delete
 
         //h5[text()='Elements']
         //daca nu avem un id se foloseste varianta By.xpath
 
         WebElement deleteElement = driver.findElement(By.id("delete-record-4"));
-        js.executeScript("arguments[0].click();", deleteElement);
+        elementMethods.clickJSElement(deleteElement);
 
         newTableContentList = driver.findElements(By.xpath("//div[@class = 'rt-tbody']/div/div[@class = 'rt-tr -odd' or @class = 'rt-tr -even']"));
         Assert.assertEquals(newTableContentList.size(), 3, "Default size for table is not 3. ");
 
         driver.quit();
-
 
     }
 

@@ -1,5 +1,7 @@
 package tests;
 
+import helpMethods.ElementMethods;
+import helpMethods.TabMethods;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -25,44 +27,29 @@ public class TabWindowsTest {
         //Facem browserul maximize
         driver.manage().window().maximize();
 
-        WebElement alertFrameWindowsMeniu = driver.findElement(By.xpath("//h5[text()='Alerts, Frame & Windows']"));
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].click();", alertFrameWindowsMeniu);
+        ElementMethods elementMethods = new ElementMethods(driver);
+        TabMethods tabMethods = new TabMethods(driver);
+
+        WebElement alertFrameWindowsMenu = driver.findElement(By.xpath("//h5[text()='Alerts, Frame & Windows']"));
+        elementMethods.clickJSElement(alertFrameWindowsMenu);
 
         WebElement browserWindowsElement = driver.findElement(By.xpath("//span[text()='Browser Windows']"));
-        js.executeScript("arguments[0].click();", browserWindowsElement);
+        elementMethods.clickJSElement(browserWindowsElement);
 
         WebElement newTabElement = driver.findElement(By.id("tabButton"));
-        js.executeScript("arguments[0].click();", newTabElement);
+        elementMethods.clickJSElement(newTabElement);
 
-        System.out.println("URL-ul paginii curente este " + driver.getCurrentUrl());
-
-        List<String> tabsList = new ArrayList<>(driver.getWindowHandles());
-        driver.switchTo().window(tabsList.get(1));
-
-        System.out.println("URL-ul paginii curente este " + driver.getCurrentUrl());
-
-        driver.close();
-
-        driver.switchTo().window(tabsList.get(0));
-
-        System.out.println("URL-ul paginii curente este " + driver.getCurrentUrl());
+        tabMethods.switchSpecificTab(1);
+        tabMethods.closeCurrentTab();
+        tabMethods.switchSpecificTab(0);
 
         WebElement newWindowElement = driver.findElement(By.id("windowButton"));
-        js.executeScript("arguments[0].click();", newWindowElement);
+        elementMethods.clickJSElement(newWindowElement);
 
-        System.out.println("URL-ul paginii curente este " + driver.getCurrentUrl());
-
-        List<String> windowList = new ArrayList<>(driver.getWindowHandles());
-        driver.switchTo().window(windowList.get(1));
-
-        System.out.println("URL-ul paginii curente este " + driver.getCurrentUrl());
-
-        driver.close();
+        tabMethods.switchSpecificTab(1);
+        tabMethods.closeCurrentTab();
 
         driver.quit();
 
-
     }
-
 }

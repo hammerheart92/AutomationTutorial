@@ -1,6 +1,7 @@
 package tests;
 
 
+import helpMethods.ElementMethods;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -26,12 +27,14 @@ public class FrameTest {
         //wait implicit
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
+        ElementMethods elementMethods = new ElementMethods(driver);
+
         WebElement alertFrameWindowsMenu = driver.findElement(By.xpath("//h5[text()='Alerts, Frame & Windows']"));
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].click();", alertFrameWindowsMenu);
+        elementMethods.clickJSElement(alertFrameWindowsMenu);
 
         WebElement framesSubMenu = driver.findElement(By.xpath("//span[text()='Frames']"));
-        js.executeScript("arguments[0].click();", framesSubMenu);
+        elementMethods.clickJSElement(framesSubMenu);
 
         //ne mutam pe un iframe
         driver.switchTo().frame("frame1");

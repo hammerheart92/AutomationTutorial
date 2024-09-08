@@ -34,15 +34,10 @@ public class PracticeFormTest {
 
         WebElement formsMenu = driver.findElement(By.xpath("//h5[text()='Forms']"));
         JavascriptExecutor js = (JavascriptExecutor) driver;
-//        js.executeScript("arguments[0].click();", formsMenu);
         elementMethods.clickJSElement(formsMenu);
 
-
-
         WebElement practiceFormsSubMenu = driver.findElement(By.xpath("//span[text()='Practice Form']"));
-//        js.executeScript("arguments[0].click();", practiceFormsSubMenu);
         elementMethods.clickJSElement(practiceFormsSubMenu);
-
 
         WebElement fistNameElement = driver.findElement(By.id("firstName"));
         String firstNameValue = "Apaczai";
@@ -129,7 +124,6 @@ public class PracticeFormTest {
         currentAdressElement.sendKeys(currentAdressValue);
 
         WebElement stateElement = driver.findElement(By.xpath("//div[text()='Select State']"));
-//        js.executeScript("arguments[0].click();", stateElement);
         elementMethods.clickJSElement(stateElement);
 
         WebElement stateInputElement = driver.findElement(By.id("react-select-3-input"));
@@ -143,7 +137,6 @@ public class PracticeFormTest {
         cityInputElement.sendKeys(Keys.ENTER);
 
         WebElement submitElement = driver.findElement(By.id("submit"));
-//        js.executeScript("arguments[0].click();", submitElement);
         elementMethods.clickJSElement(submitElement);
 
 

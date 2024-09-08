@@ -41,13 +41,5 @@ public class ElementMethods {
 
     }
 
-//    public void clickGenderOptions(List<WebElement> options, String gender){
-//        for (WebElement option : options){
-//            if (option.getAttribute("value").equalsIgnoreCase(gender)){
-//                clickJSElement(option);
-//                break;
-//            }
-//        }
-
     }
 

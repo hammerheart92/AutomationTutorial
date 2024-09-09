@@ -30,7 +30,6 @@ public class WebTableTest {
         ElementMethods elementMethods = new ElementMethods(driver);
 
         WebElement elementsMenu = driver.findElement(By.xpath("//h5[text()='Elements']"));
-        JavascriptExecutor js = (JavascriptExecutor) driver;
         elementMethods.clickJSElement(elementsMenu);
 
         //span[text()='Web Tables']
@@ -51,33 +50,33 @@ public class WebTableTest {
 
         WebElement firstNameElement = driver.findElement(By.id("firstName"));
         String firstNameValue = "Apaczai";
-        firstNameElement.sendKeys(firstNameValue);
+        elementMethods.fillElement(firstNameElement, firstNameValue);
         //Scriem din firtNameElement valoare din firstNameValue
 
         WebElement lastNameElement = driver.findElement(By.id("lastName"));
         String lastNameValue = "Laszlo";
-        lastNameElement.sendKeys(lastNameValue);
+        elementMethods.fillElement(lastNameElement, lastNameValue);
         //Scriem din lastNameElement valoarea din lastNameValue
 
         WebElement emailElement = driver.findElement(By.id("userEmail"));
         String emailValue = "hammerheart92@mail.com";
-        emailElement.sendKeys(emailValue);
+        elementMethods.fillElement(emailElement, emailValue);
         //Scriem din emailElement valoarea din emailValue
 
 
         WebElement ageElement = driver.findElement(By.id("age"));
         String ageValue = "32";
-        ageElement.sendKeys(ageValue);
+        elementMethods.fillElement(ageElement, ageValue);
         //Scriem din ageElement valoarea din ageValue
 
         WebElement salaryElement = driver.findElement(By.id("salary"));
         String salaryValue = "3200";
-        salaryElement.sendKeys(salaryValue);
+        elementMethods.fillElement(salaryElement, salaryValue);
         //Scriem din salaryElement valoarea din salaryValue
 
         WebElement departmentElement = driver.findElement(By.id("department"));
         String departmentValue = "Technical Support";
-        departmentElement.sendKeys(departmentValue);
+        elementMethods.fillElement(departmentElement, departmentValue);
         //Scriem din departmentElement valoarea din departmentValue
 
         WebElement submitElement = driver.findElement(By.id("submit"));
@@ -107,32 +106,27 @@ public class WebTableTest {
 
         WebElement editFirstNameElement = driver.findElement(By.id("firstName"));
         String editFirstNameValue = "Laszlo";
-        editFirstNameElement.clear();
-        editFirstNameElement.sendKeys(editFirstNameValue);
+        elementMethods.clearEditElement(editFirstNameElement, editFirstNameValue);
 
         //second element
 
         WebElement editLastNameElement = driver.findElement(By.id("lastName"));
         String editLastNameValue = "Istvan";
-        editLastNameElement.clear();
-        editLastNameElement.sendKeys(editLastNameValue);
+        elementMethods.clearEditElement(editLastNameElement, editLastNameValue);
 
         //3RD element
 
         WebElement editEmailElement = driver.findElement(By.id("userEmail"));
         String editEmailValue = "father.thunder92@gmail.com";
-        editEmailElement.clear();
-        editEmailElement.sendKeys(editEmailValue);
+        elementMethods.clearEditElement(editEmailElement, editEmailValue);
 
         WebElement editSalaryElement = driver.findElement(By.id("salary"));
         String editSalaryValue = "4500";
-        editSalaryElement.clear();
-        editSalaryElement.sendKeys(editSalaryValue);
+        elementMethods.clearEditElement(editSalaryElement, editSalaryValue);
 
         WebElement editDepartmentElement = driver.findElement(By.id("department"));
         String editDepartmentValue = "Automation";
-        editDepartmentElement.clear();
-        editDepartmentElement.sendKeys(editDepartmentValue);
+        elementMethods.clearEditElement(editDepartmentElement, editDepartmentValue);
 
         WebElement editSubmitElement = driver.findElement(By.id("submit"));
         elementMethods.clickElement(editSubmitElement);

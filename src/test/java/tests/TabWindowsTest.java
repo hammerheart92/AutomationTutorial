@@ -9,6 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.testng.annotations.Test;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,6 +27,7 @@ public class TabWindowsTest {
         driver.get("https://demoqa.com/");
         //Facem browserul maximize
         driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
         ElementMethods elementMethods = new ElementMethods(driver);
         TabMethods tabMethods = new TabMethods(driver);

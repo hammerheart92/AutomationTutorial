@@ -49,13 +49,13 @@ public class ElementMethods {
 
     }
 
-    public void selectDropdownElement(WebElement element, String text){
+    public void selectDropdownElement(WebElement element, String text) {
         waitVisibleElement(element);
         Select select = new Select(element);
         select.selectByVisibleText(text);
     }
 
-    public void clearEditElement(WebElement element, String text){
+    public void clearEditElement(WebElement element, String text) {
         waitVisibleElement(element);
         element.clear();
         element.sendKeys(text);
@@ -63,5 +63,8 @@ public class ElementMethods {
     }
 
 
+    public void clearElement(WebElement element) {
+        waitVisibleElement(element);
+        element.clear();
+    }
 }
-

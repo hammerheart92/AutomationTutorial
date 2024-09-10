@@ -14,12 +14,13 @@ public class ForgotPassword {
     public WebDriver driver;
 
     @Test
-    public void testMethod(){
+    public void testMethod() {
 
         driver = new EdgeDriver();
         driver.get("https://the-internet.herokuapp.com/");
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
         ElementMethods elementMethods = new ElementMethods(driver);
 
         WebElement forgotPasswordElement = driver.findElement(By.linkText("Forgot Password"));

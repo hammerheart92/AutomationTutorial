@@ -43,7 +43,6 @@ public class WebTableTest {
         Assert.assertEquals(tableContentList.size(), 3, "Default size for table is not 3. ");
         //a doua virgula dupa expected reprezinta mesajul pe care vrei sa il adaugi "" care adauga al doilea parametru
 
-
         //Definim un element (Denumirea sa fie de preferat ca pe site)
         WebElement addElement = driver.findElement(By.id("addNewRecordButton"));
         elementMethods.clickElement(addElement);
@@ -62,7 +61,6 @@ public class WebTableTest {
         String emailValue = "hammerheart92@mail.com";
         elementMethods.fillElement(emailElement, emailValue);
         //Scriem din emailElement valoarea din emailValue
-
 
         WebElement ageElement = driver.findElement(By.id("age"));
         String ageValue = "32";

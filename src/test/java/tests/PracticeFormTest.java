@@ -158,8 +158,8 @@ public class PracticeFormTest {
         Assert.assertEquals(valuesList.get(2).getText(), genderValue);
         Assert.assertEquals(valuesList.get(3).getText(), numberValue);
         Assert.assertEquals(valuesList.get(4).getText(), "18 January,2030");
-        Assert.assertEquals(valuesList.get(5).getText(), subjectValues);
-        Assert.assertEquals(valuesList.get(6).getText(), hobbiesValues);
+        Assert.assertEquals(valuesList.get(5).getText(), "Chemistry, Social Studies, Economics");
+        Assert.assertEquals(valuesList.get(6).getText(), "Sports, Music");
         Assert.assertEquals(valuesList.get(7).getText(), pictureElement);
         Assert.assertEquals(valuesList.get(8).getText(), currentAdressValue);
         Assert.assertEquals(valuesList.get(9).getText(), stateInputValue + " " + cityInputValue);

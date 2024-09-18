@@ -9,6 +9,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.testng.annotations.Test;
+import pages.AlertFrameWindowPage;
+import pages.FramesPage;
 import pages.HomePage;
 
 import java.time.Duration;
@@ -29,30 +31,15 @@ public class FrameTest {
         //wait implicit
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
-        ElementMethods elementMethods = new ElementMethods(driver);
-        FrameMethods frameMethods = new FrameMethods(driver);
-
         HomePage homePage = new HomePage(driver);
         homePage.clickAlertFrameWindow();
 
-        WebElement framesSubMenu = driver.findElement(By.xpath("//span[text()='Frames']"));
-        elementMethods.clickJSElement(framesSubMenu);
+        AlertFrameWindowPage alertFrameWindowPage = new AlertFrameWindowPage(driver);
+        alertFrameWindowPage.clickFramesSubMenu();
 
-        //ne mutam pe un iframe
-        frameMethods.switchToSpecificIframe("frame1");
-
-        WebElement sampleTextElement = driver.findElement(By.id("sampleHeading"));
-        System.out.println(sampleTextElement.getText());
-
-        frameMethods.switchToParentIframe();
-
-        frameMethods.switchToSpecificIframe("frame2");
-
-        WebElement secondSampleTextElement = driver.findElement(By.id("sampleHeading"));
-        System.out.println(secondSampleTextElement.getText());
-
-
-
+        FramesPage framesPage = new FramesPage(driver);
+        framesPage.dealFirstIFrame();
+        framesPage.dealSecondIFrame();
 
     }
 

@@ -8,6 +8,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.testng.annotations.Test;
+import pages.AlertFrameWindowPage;
+import pages.HomePage;
+import pages.TabWindowPage;
 
 import java.time.Duration;
 import java.util.ArrayList;
@@ -20,7 +23,6 @@ public class TabWindowsTest {
     @Test
     public void metodaTest() {
 
-
         //Deschidem un browser
         driver = new EdgeDriver();
         //Accesam un url
@@ -29,29 +31,15 @@ public class TabWindowsTest {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
-        ElementMethods elementMethods = new ElementMethods(driver);
-        TabMethods tabMethods = new TabMethods(driver);
+        HomePage homePage = new HomePage(driver);
+        homePage.clickAlertFrameWindow();
 
-        WebElement alertFrameWindowsMenu = driver.findElement(By.xpath("//h5[text()='Alerts, Frame & Windows']"));
-        elementMethods.clickJSElement(alertFrameWindowsMenu);
+        AlertFrameWindowPage alertFrameWindowPage = new AlertFrameWindowPage(driver);
+        alertFrameWindowPage.clickBrowserWindowsSubMenu();
 
-        WebElement browserWindowsElement = driver.findElement(By.xpath("//span[text()='Browser Windows']"));
-        elementMethods.clickJSElement(browserWindowsElement);
-
-        WebElement newTabElement = driver.findElement(By.id("tabButton"));
-        elementMethods.clickJSElement(newTabElement);
-
-        tabMethods.switchSpecificTab(1);
-        tabMethods.closeCurrentTab();
-        tabMethods.switchSpecificTab(0);
-
-        WebElement newWindowElement = driver.findElement(By.id("windowButton"));
-        elementMethods.clickJSElement(newWindowElement);
-
-        tabMethods.switchSpecificTab(1);
-        tabMethods.closeCurrentTab();
-
-        driver.quit();
+        TabWindowPage tabWindowPage = new TabWindowPage(driver);
+        tabWindowPage.dealTabProcess();
+        tabWindowPage.dealWindowProcess();
 
     }
 }

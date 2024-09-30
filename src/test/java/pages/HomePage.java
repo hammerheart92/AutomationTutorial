@@ -21,6 +21,8 @@ public class HomePage {
     public WebElement alertFrameWindowsMenu;
     @FindBy(xpath = "//h5[text()='Elements']")
     public WebElement elementsMenu;
+    @FindBy(xpath = "//h5[text()='Forms']")
+    public WebElement formsMenu;
 
     public void clickAlertFrameWindow(){
         elementMethods.clickJSElement(alertFrameWindowsMenu);
@@ -28,5 +30,9 @@ public class HomePage {
 
     public void clickElements(){
         elementMethods.clickJSElement(elementsMenu);
+    }
+
+    public void clickForms(){
+        elementMethods.clickJSElement(formsMenu);
     }
 }

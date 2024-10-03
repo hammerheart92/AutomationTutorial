@@ -12,24 +12,14 @@ import org.testng.annotations.Test;
 import pages.AlertFrameWindowPage;
 import pages.FramesPage;
 import pages.HomePage;
+import shareData.ShareData;
 
 import java.time.Duration;
 
-public class FrameTest {
-
-    public WebDriver driver;
+public class FrameTest extends ShareData {
 
     @Test
     public void metodaTest() {
-
-        //Deschidem un browser
-        driver = new EdgeDriver();
-        //Accesam un url
-        driver.get("https://demoqa.com/");
-        //Facem browserul maximize
-        driver.manage().window().maximize();
-        //wait implicit
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
         HomePage homePage = new HomePage(driver);
         homePage.clickAlertFrameWindow();

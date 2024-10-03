@@ -7,24 +7,15 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
+import shareData.ShareData;
 
 import java.time.Duration;
 import java.util.List;
 
-public class DatePicker {
-
-    public WebDriver driver;
+public class DatePicker extends ShareData {
 
     @Test
     public void metodaTest() {
-
-        //Deschidem un browser
-        driver = new EdgeDriver();
-        //Accesam un url
-        driver.get("https://demoqa.com/");
-        //Facem browserul maximize
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
         ElementMethods elementMethods = new ElementMethods(driver);
 

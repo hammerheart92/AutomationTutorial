@@ -10,25 +10,17 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.FormsPage;
 import pages.HomePage;
+import shareData.ShareData;
 
 import java.io.File;
 import java.sql.Driver;
 import java.util.Arrays;
 import java.util.List;
 
-public class PracticeFormTest {
-
-    public WebDriver driver;
+public class PracticeFormTest extends ShareData {
 
     @Test
     public void metodaTest() {
-
-        //Deschidem un browser
-        driver = new ChromeDriver();
-        //Accesam un url
-        driver.get("https://demoqa.com/");
-        //Facem browserul maximize
-        driver.manage().window().maximize();
 
         ElementMethods elementMethods = new ElementMethods(driver);
 

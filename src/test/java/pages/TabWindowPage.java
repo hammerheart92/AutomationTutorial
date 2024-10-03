@@ -8,17 +8,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class TabWindowPage {
-
-    public WebDriver driver;
-    public ElementMethods elementMethods;
-    public TabMethods tabMethods;
+public class TabWindowPage extends BasePage {
 
     public TabWindowPage(WebDriver driver) {
-        this.driver = driver;
-        elementMethods = new ElementMethods(this.driver);
-        tabMethods = new TabMethods(this.driver);
-        PageFactory.initElements(this.driver, this);
+        super(driver);
     }
 
     @FindBy(id = "tabButton")

@@ -8,27 +8,17 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.testng.annotations.Test;
+import shareData.ShareData;
 
 import java.time.Duration;
 
-public class NestedFramesTest {
-
-    public WebDriver driver;
+public class NestedFramesTest extends ShareData {
 
     @Test
     public void metodaTest() {
 
-        //Deschidem un browser
-        driver = new EdgeDriver();
-        //Accesam un url
-        driver.get("https://demoqa.com/");
-        //Facem browserul maximize
-        driver.manage().window().maximize();
-        //wait implicit
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        FrameMethods frameMethods = new FrameMethods(driver);
-
         ElementMethods elementMethods = new ElementMethods(driver);
+        FrameMethods frameMethods = new FrameMethods(driver);
 
         WebElement alertFrameWindowsMenu = driver.findElement(By.xpath("//h5[text()='Alerts, Frame & Windows']"));
         elementMethods.clickJSElement(alertFrameWindowsMenu);
@@ -44,7 +34,6 @@ public class NestedFramesTest {
         WebElement childFrameElement = driver.findElement(By.tagName("iframe"));
         frameMethods.switchToSpecificIframeByElement(childFrameElement);
         //am mutat privirea in fereastra mica (iframe copil)
-
 
         WebElement childSampleTextElement = driver.findElement(By.tagName("p"));
         //in această fereastra mica, cautam primul paragraf de text (elementul <p>).

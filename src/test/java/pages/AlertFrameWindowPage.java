@@ -6,15 +6,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class AlertFrameWindowPage {
-
-    public WebDriver driver;
-    public ElementMethods elementMethods;
+public class AlertFrameWindowPage extends BasePage {
 
     public AlertFrameWindowPage(WebDriver driver) {
-        this.driver = driver;
-        elementMethods = new ElementMethods(this.driver);
-        PageFactory.initElements(this.driver,this);
+        super(driver);
     }
 
     @FindBy(xpath = "//span[text()='Alerts']")

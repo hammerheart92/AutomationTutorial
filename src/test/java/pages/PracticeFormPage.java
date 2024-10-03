@@ -8,15 +8,10 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-public class PracticeFormPage {
-
-    public WebDriver driver;
-    public ElementMethods elementMethods;
+public class PracticeFormPage extends BasePage {
 
     public PracticeFormPage(WebDriver driver) {
-        this.driver = driver;
-        elementMethods = new ElementMethods(this.driver);
-        PageFactory.initElements(this.driver, this);
+        super(driver);
     }
 
     @FindBy(id = "firstName")

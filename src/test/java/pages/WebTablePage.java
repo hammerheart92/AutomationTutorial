@@ -10,15 +10,10 @@ import org.testng.Assert;
 
 import java.util.List;
 
-public class WebTablePage {
-
-    public WebDriver driver;
-    public ElementMethods elementMethods;
+public class WebTablePage extends BasePage {
 
     public WebTablePage(WebDriver driver) {
-        this.driver = driver;
-        elementMethods = new ElementMethods(this.driver);
-        PageFactory.initElements(this.driver, this);
+        super(driver);
     }
 
     @FindBy(xpath = "//div[@class = 'rt-tbody']/div/div[@class = 'rt-tr -odd' or @class = 'rt-tr -even']")

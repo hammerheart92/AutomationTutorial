@@ -13,23 +13,15 @@ import org.testng.annotations.Test;
 import pages.ElementsPage;
 import pages.HomePage;
 import pages.WebTablePage;
+import shareData.ShareData;
 
 import java.sql.Driver;
 import java.util.List;
 
-public class WebTableTest {
-
-    public WebDriver driver;
+public class WebTableTest extends ShareData {
 
     @Test
     public void metodaTest() {
-
-        //Deschidem un browser
-        driver = new EdgeDriver();
-        //Accesam un url
-        driver.get("https://demoqa.com/");
-        //Facem browserul maximize
-        driver.manage().window().maximize();
 
         HomePage homePage = new HomePage(driver);
         homePage.clickElements();

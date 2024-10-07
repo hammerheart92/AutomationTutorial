@@ -1,10 +1,8 @@
 package pages;
 
-import helpMethods.ElementMethods;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
 public class AlertFrameWindowPage extends BasePage {
 
@@ -13,11 +11,13 @@ public class AlertFrameWindowPage extends BasePage {
     }
 
     @FindBy(xpath = "//span[text()='Alerts']")
-    public WebElement alertsSubMenu;
+    private WebElement alertsSubMenu;
     @FindBy(xpath = "//span[text()='Browser Windows']")
-    public WebElement browserWindowsSubMenu;
+    private WebElement browserWindowsSubMenu;
     @FindBy(xpath = "//span[text()='Frames']")
-    public WebElement framesSubMenu;
+    private WebElement framesSubMenu;
+    @FindBy(xpath = "//span[text()='Nested Frames']")
+    private WebElement nestedFramesSubMenu;
 
     public void clickAlert(){
         elementMethods.clickJSElement(alertsSubMenu);
@@ -27,6 +27,9 @@ public class AlertFrameWindowPage extends BasePage {
     }
     public void clickFramesSubMenu(){
         elementMethods.clickJSElement(framesSubMenu);
+    }
+    public void clickNestedFramesSubMenu(){
+        elementMethods.clickJSElement(nestedFramesSubMenu);
     }
 
 }

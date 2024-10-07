@@ -18,7 +18,7 @@ public class FrameMethods {
     public void switchToParentIframe(){
         driver.switchTo().parentFrame();
     }
-    public void switchToSpecificIframeByElement(WebElement element){
+    public void switchToSpecificIframe(WebElement element){
         driver.switchTo().frame(element);
 
     }

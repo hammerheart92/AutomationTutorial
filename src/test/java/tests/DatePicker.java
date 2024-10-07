@@ -2,14 +2,10 @@ package tests;
 
 import helpMethods.ElementMethods;
 import org.openqa.selenium.*;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 import shareData.ShareData;
 
-import java.time.Duration;
 import java.util.List;
 
 public class DatePicker extends ShareData {
@@ -17,30 +13,30 @@ public class DatePicker extends ShareData {
     @Test
     public void metodaTest() {
 
-        ElementMethods elementMethods = new ElementMethods(driver);
+        ElementMethods elementMethods = new ElementMethods(getDriver());
 
-        WebElement widgetsMenu = driver.findElement(By.xpath("//h5[text()='Widgets']"));
-        JavascriptExecutor js = (JavascriptExecutor) driver;
+        WebElement widgetsMenu = getDriver().findElement(By.xpath("//h5[text()='Widgets']"));
+        JavascriptExecutor js = (JavascriptExecutor) getDriver();
         elementMethods.clickJSElement(widgetsMenu);
 
-        WebElement widgestsSubMenu = driver.findElement(By.xpath("//span[text()='Date Picker']"));
+        WebElement widgestsSubMenu = getDriver().findElement(By.xpath("//span[text()='Date Picker']"));
         elementMethods.clickJSElement(widgestsSubMenu);
 
-        WebElement datePickerMonthYearElement = driver.findElement(By.id("datePickerMonthYearInput"));
+        WebElement datePickerMonthYearElement = getDriver().findElement(By.id("datePickerMonthYearInput"));
         elementMethods.clickJSElement(datePickerMonthYearElement);
 
-        WebElement monthElement = driver.findElement(By.className("react-datepicker__month-select"));
+        WebElement monthElement = getDriver().findElement(By.className("react-datepicker__month-select"));
         Select monthSelect = new Select(monthElement);
         String monthValue = "August";
         monthSelect.selectByVisibleText(monthValue);
 
-        WebElement yearElement = driver.findElement(By.className("react-datepicker__year-select"));
+        WebElement yearElement = getDriver().findElement(By.className("react-datepicker__year-select"));
         Select yearSelect = new Select(yearElement);
         String yearValue = "1996";
         yearSelect.selectByVisibleText(yearValue);
 
         String dayValue = "31";
-        List<WebElement> daysList = driver.findElements(By.xpath("//div[@class = 'react-datepicker__month']/div/div[not(contains(@class,'react-datepicker__day--outside-month'))]"));
+        List<WebElement> daysList = getDriver().findElements(By.xpath("//div[@class = 'react-datepicker__month']/div/div[not(contains(@class,'react-datepicker__day--outside-month'))]"));
         for (int index = 0; index < daysList.size(); index++) {
             if (daysList.get(index).getText().equals(dayValue)) {
                 daysList.get(index).click();
@@ -49,15 +45,15 @@ public class DatePicker extends ShareData {
 
         }
 
-        WebElement dateAndTimePickerElement = driver.findElement(By.id("dateAndTimePickerInput"));
+        WebElement dateAndTimePickerElement = getDriver().findElement(By.id("dateAndTimePickerInput"));
         elementMethods.clickJSElement(dateAndTimePickerElement);
 
-        WebElement monthPickerElement = driver.findElement(By.xpath("//div[@class='react-datepicker__month-read-view']"));
+        WebElement monthPickerElement = getDriver().findElement(By.xpath("//div[@class='react-datepicker__month-read-view']"));
         elementMethods.clickJSElement(monthPickerElement);
 
 
         String monthsValue = "August";
-        List<WebElement> monthslist = driver.findElements(By.xpath("//div[@class='react-datepicker__month-dropdown']//div"));
+        List<WebElement> monthslist = getDriver().findElements(By.xpath("//div[@class='react-datepicker__month-dropdown']//div"));
         for (int index = 0; index < monthslist.size(); index++) {
             if (monthslist.get(index).getText().equals(monthsValue)) {
                 monthslist.get(index).click();
@@ -66,7 +62,7 @@ public class DatePicker extends ShareData {
 
         }
 
-        WebElement yearPickerElement = driver.findElement(By.xpath("//div[@class='react-datepicker__year-read-view']"));
+        WebElement yearPickerElement = getDriver().findElement(By.xpath("//div[@class='react-datepicker__year-read-view']"));
         elementMethods.clickJSElement(yearPickerElement);
         
 

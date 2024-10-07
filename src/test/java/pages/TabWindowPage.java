@@ -1,12 +1,8 @@
 package pages;
 
-import helpMethods.ElementMethods;
-import helpMethods.TabMethods;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
 public class TabWindowPage extends BasePage {
 
@@ -15,9 +11,9 @@ public class TabWindowPage extends BasePage {
     }
 
     @FindBy(id = "tabButton")
-    public WebElement newTabElement;
+    private WebElement newTabElement;
     @FindBy(id = "windowButton")
-    public WebElement windowButtonElement;
+    private WebElement windowButtonElement;
 
     public void dealTabProcess() {
         elementMethods.clickJSElement(newTabElement);

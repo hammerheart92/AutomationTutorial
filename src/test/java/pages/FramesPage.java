@@ -1,12 +1,8 @@
 package pages;
 
-import helpMethods.ElementMethods;
-import helpMethods.FrameMethods;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
 public class FramesPage extends BasePage {
 
@@ -15,9 +11,9 @@ public class FramesPage extends BasePage {
     }
 
     @FindBy(id = "sampleHeading")
-    public WebElement sampleTextElement;
+    private WebElement sampleTextElement;
     @FindBy(id = "sampleHeading")
-    public WebElement secondSampleTextElement;
+    private WebElement secondSampleTextElement;
 
     public void dealFirstIFrame(){
         frameMethods.switchToSpecificIframe("frame1");

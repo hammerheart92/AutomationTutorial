@@ -1,32 +1,20 @@
 package tests;
 
-import helpMethods.ElementMethods;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.ElementsPage;
 import pages.HomePage;
 import pages.WebTablePage;
 import shareData.ShareData;
 
-import java.sql.Driver;
-import java.util.List;
-
 public class WebTableTest extends ShareData {
 
     @Test
     public void metodaTest() {
 
-        HomePage homePage = new HomePage(driver);
+        HomePage homePage = new HomePage(getDriver());
         homePage.clickElements();
 
-        ElementsPage elementsPage = new ElementsPage(driver);
+        ElementsPage elementsPage = new ElementsPage(getDriver());
         elementsPage.clickWebTable();
 
         String firstNameValue = "Apaczai";
@@ -36,7 +24,7 @@ public class WebTableTest extends ShareData {
         String salaryValue = "3200";
         String departmentValue = "Technical Support";
 
-        WebTablePage webTablePage = new WebTablePage(driver);
+        WebTablePage webTablePage = new WebTablePage(getDriver());
         webTablePage.createProcess(firstNameValue, lastNameValue, emailValue, ageValue, salaryValue, departmentValue, 3);
 
         String editFirstNameValue = "Laszlo";
@@ -49,7 +37,7 @@ public class WebTableTest extends ShareData {
 
         webTablePage.deleteProcess(3);
 
-        driver.quit();
+        getDriver().quit();
 
     }
 

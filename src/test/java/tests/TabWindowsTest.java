@@ -1,34 +1,23 @@
 package tests;
 
-import helpMethods.ElementMethods;
-import helpMethods.TabMethods;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.edge.EdgeDriver;
 import org.testng.annotations.Test;
 import pages.AlertFrameWindowPage;
 import pages.HomePage;
 import pages.TabWindowPage;
 import shareData.ShareData;
 
-import java.time.Duration;
-import java.util.ArrayList;
-import java.util.List;
-
 public class TabWindowsTest extends ShareData {
 
     @Test
     public void metodaTest() {
 
-        HomePage homePage = new HomePage(driver);
+        HomePage homePage = new HomePage(getDriver());
         homePage.clickAlertFrameWindow();
 
-        AlertFrameWindowPage alertFrameWindowPage = new AlertFrameWindowPage(driver);
+        AlertFrameWindowPage alertFrameWindowPage = new AlertFrameWindowPage(getDriver());
         alertFrameWindowPage.clickBrowserWindowsSubMenu();
 
-        TabWindowPage tabWindowPage = new TabWindowPage(driver);
+        TabWindowPage tabWindowPage = new TabWindowPage(getDriver());
         tabWindowPage.dealTabProcess();
         tabWindowPage.dealWindowProcess();
 

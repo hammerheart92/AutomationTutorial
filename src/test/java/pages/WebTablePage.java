@@ -1,11 +1,8 @@
 package pages;
 
-import helpMethods.ElementMethods;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
 import java.util.List;
@@ -17,41 +14,41 @@ public class WebTablePage extends BasePage {
     }
 
     @FindBy(xpath = "//div[@class = 'rt-tbody']/div/div[@class = 'rt-tr -odd' or @class = 'rt-tr -even']")
-    public List<WebElement> tableContentList;
+    private List<WebElement> tableContentList;
     @FindBy(id = "addNewRecordButton")
-    public WebElement addElement;
+    private WebElement addElement;
     @FindBy(id = "firstName")
-    public WebElement firstNameElement;
+    private WebElement firstNameElement;
     @FindBy(id = "lastName")
-    public WebElement lastNameElement;
+    private WebElement lastNameElement;
     @FindBy(id = "userEmail")
-    public WebElement emailElement;
+    private WebElement emailElement;
     @FindBy(id = "age")
-    public WebElement ageElement;
+    private WebElement ageElement;
     @FindBy(id = "salary")
-    public WebElement salaryElement;
+    private WebElement salaryElement;
     @FindBy(id = "department")
-    public WebElement departmentElement;
+    private WebElement departmentElement;
     @FindBy(id = "submit")
-    public WebElement editSubmitElement;
+    private WebElement editSubmitElement;
     @FindBy(xpath = "//div[@class = 'rt-tbody']/div/div[@class = 'rt-tr -odd' or @class = 'rt-tr -even']")
-    public List<WebElement> newTableContentList;
+    private List<WebElement> newTableContentList;
     @FindBy(id = "edit-record-4")
-    public WebElement editElement;
+    private WebElement editElement;
     @FindBy(id = "firstName")
-    public WebElement editFirstNameElement;
+    private WebElement editFirstNameElement;
     @FindBy(id = "lastName")
-    public WebElement editLastNameElement;
+    private WebElement editLastNameElement;
     @FindBy(id = "userEmail")
-    public WebElement editEmailElement;
+    private WebElement editEmailElement;
     @FindBy(id = "salary")
-    public WebElement editSalaryElement;
+    private WebElement editSalaryElement;
     @FindBy(id = "department")
-    public WebElement editDepartmentElement;
+    private WebElement editDepartmentElement;
     @FindBy(id = "submit")
-    public WebElement submitElement;
+    private WebElement submitElement;
     @FindBy(id = "delete-record-4")
-    public WebElement deleteElement;
+    private WebElement deleteElement;
 
     public void createProcess(String firstNameValue, String lastNameValue, String emailValue, String ageValue, String salaryValue, String departmentValue, int tableSize) {
 

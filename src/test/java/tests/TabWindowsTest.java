@@ -4,9 +4,9 @@ import org.testng.annotations.Test;
 import pages.AlertFrameWindowPage;
 import pages.HomePage;
 import pages.TabWindowPage;
-import shareData.ShareData;
+import shareData.Hooks;
 
-public class TabWindowsTest extends ShareData {
+public class TabWindowsTest extends Hooks {
 
     @Test
     public void metodaTest() {
@@ -20,6 +20,7 @@ public class TabWindowsTest extends ShareData {
         TabWindowPage tabWindowPage = new TabWindowPage(getDriver());
         tabWindowPage.dealTabProcess();
         tabWindowPage.dealWindowProcess();
+//        tabWindowPage.dealWindowMessageProcess();
 
     }
 }

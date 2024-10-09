@@ -4,9 +4,9 @@ import org.testng.annotations.Test;
 import pages.ElementsPage;
 import pages.HomePage;
 import pages.WebTablePage;
-import shareData.ShareData;
+import shareData.Hooks;
 
-public class WebTableTest extends ShareData {
+public class WebTableTest extends Hooks {
 
     @Test
     public void metodaTest() {
@@ -36,8 +36,7 @@ public class WebTableTest extends ShareData {
         webTablePage.editProcess(editFirstNameValue, editLastNameValue, editEmailValue, editSalaryValue, editDepartmentValue, 3);
 
         webTablePage.deleteProcess(3);
-
-        getDriver().quit();
+        //de continuat de la 1:35 ore
 
     }
 

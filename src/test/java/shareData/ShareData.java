@@ -11,8 +11,7 @@ public class ShareData {
 
     private WebDriver driver;
 
-    @BeforeMethod
-    public void setUpEnvironment(){
+    public void setUpDriver(){
 
         //Deschidem un browser
         driver = new ChromeDriver();
@@ -28,8 +27,7 @@ public class ShareData {
         return driver;
     }
 
-    @AfterMethod
-    public void clearEnvironment(){
+    public void quitDriver(){
         driver.quit();
 
     }

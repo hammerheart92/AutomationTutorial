@@ -4,12 +4,12 @@ import org.testng.annotations.Test;
 import pages.FormsPage;
 import pages.HomePage;
 import pages.PracticeFormPage;
-import shareData.ShareData;
+import shareData.Hooks;
 
 import java.util.Arrays;
 import java.util.List;
 
-public class PracticeFormTest extends ShareData {
+public class PracticeFormTest extends Hooks {
 
     @Test
     public void metodaTest() {

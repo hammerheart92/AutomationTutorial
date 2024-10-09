@@ -21,13 +21,21 @@ public class AlertPage extends BasePage {
 
     public void dealAlertProcess(String text){
         elementMethods.clickElement(okAlert);
+        loggerUtility.infoLog("the user clicks on alertOk ");
         alertMethods.acceptAlert();
+        loggerUtility.infoLog("the user accepts the Alert ");
         elementMethods.clickElement(timerAlertButtonElement);
+        loggerUtility.infoLog("the user clicks on timerAlert ");
         alertMethods.acceptAlert();
+        loggerUtility.infoLog("the user accepts the Alert ");
         elementMethods.clickElement(confirmAlert);
+        loggerUtility.infoLog("the user clicks on alertConfirm ");
         alertMethods.dismissAlert();
+        loggerUtility.infoLog("the user dismissed the Alert ");
         elementMethods.clickElement(promtButtonAlert);
+        loggerUtility.infoLog("the user clicks on  promptAlert ");
         alertMethods.fillAlert(text);
+        loggerUtility.infoLog("the user fills the alert display with "+ text +"values and accepts it");
 
     }
 

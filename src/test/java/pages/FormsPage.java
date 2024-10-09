@@ -15,5 +15,6 @@ public class FormsPage extends BasePage {
 
     public void clickPracticeFormSubMenu(){
         elementMethods.clickJSElement(practiceFormsSubMenu);
+        loggerUtility.infoLog("the user clicks on Practice Form subMenu ");
     }
 }

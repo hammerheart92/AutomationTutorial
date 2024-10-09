@@ -4,9 +4,9 @@ import org.testng.annotations.Test;
 import pages.AlertFrameWindowPage;
 import pages.HomePage;
 import pages.NestedFramePage;
-import shareData.ShareData;
+import shareData.Hooks;
 
-public class NestedFramesTest extends ShareData {
+public class NestedFramesTest extends Hooks {
 
     @Test
     public void metodaTest() {

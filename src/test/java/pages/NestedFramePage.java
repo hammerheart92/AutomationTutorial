@@ -17,7 +17,10 @@ public class NestedFramePage extends BasePage {
 
     public void dealNestedFrame(){
         frameMethods.switchToSpecificIframe("frame1");
+        loggerUtility.infoLog("the user switches to a specific parent Iframe ");
         frameMethods.switchToSpecificIframe(childIFrame);
+        loggerUtility.infoLog("the user switches to a specific child Iframe ");
         System.out.println(childSampleText.getText());
+        loggerUtility.infoLog("the user interacts with an element within Iframe ");
     }
 }

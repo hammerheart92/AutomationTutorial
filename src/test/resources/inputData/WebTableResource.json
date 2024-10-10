@@ -1,0 +1,14 @@
+{
+  "firstNameValue": "Apaczai",
+  "lastNameValue": "Laszlo",
+  "emailValue": "hammerheart92@mail.com",
+  "ageValue": "32",
+  "salaryValue": "3200",
+  "departmentValue": "Technical Support",
+
+  "editFirstNameValue": "Laszlo",
+  "editLastNameValue": "Istvan",
+  "editEmailValue": "father.thunder92@gmail.com",
+  "editSalaryValue": "4500",
+  "editDepartmentValue": "Automation"
+}

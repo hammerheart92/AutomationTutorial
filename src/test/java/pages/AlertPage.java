@@ -1,5 +1,6 @@
 package pages;
 
+import modelObject.AlertModel;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -19,7 +20,7 @@ public class AlertPage extends BasePage {
     @FindBy(id = "promtButton")
     private WebElement promtButtonAlert;
 
-    public void dealAlertProcess(String text){
+    public void dealAlertProcess(AlertModel testData){
         elementMethods.clickElement(okAlert);
         loggerUtility.infoLog("the user clicks on alertOk ");
         alertMethods.acceptAlert();
@@ -34,8 +35,8 @@ public class AlertPage extends BasePage {
         loggerUtility.infoLog("the user dismissed the Alert ");
         elementMethods.clickElement(promtButtonAlert);
         loggerUtility.infoLog("the user clicks on  promptAlert ");
-        alertMethods.fillAlert(text);
-        loggerUtility.infoLog("the user fills the alert display with "+ text +"values and accepts it");
+        alertMethods.fillAlert(testData.getAlertText());
+        loggerUtility.infoLog("the user fills the alert display with "+ testData.getAlertText() +"values and accepts it");
 
     }
 

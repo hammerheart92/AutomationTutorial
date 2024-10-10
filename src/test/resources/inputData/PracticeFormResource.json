@@ -1,0 +1,23 @@
+{
+  "firstNameValue": "Apaczai",
+  "lastNameValue": "Laszlo",
+  "emailValue": "hammerheart92@gmail.com",
+  "genderValue": "Male",
+  "mobileNumberValue": "0729875987",
+  "dayValue": "18",
+  "monthValue": "January",
+  "yearValue": "2030",
+  "subjectValues": [
+    "Chemistry",
+    "Social Studies",
+    "Economics"
+  ],
+  "hobbiesValues": [
+    "Sports",
+    "Music"
+  ],
+  "pathFile": "src/test/resources/Laci.txt",
+  "currentAddressValue": "Cluj-Napoca, Aleea Ciucas, Nr.9",
+  "stateInputValue": "Haryana",
+  "cityInputValue": "Karnal"
+}

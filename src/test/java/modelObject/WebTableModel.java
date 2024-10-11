@@ -1,12 +1,6 @@
 package modelObject;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-
-public class WebTableModel {
+public class WebTableModel extends BaseModel {
 
     // Global variables corresponding to JSON fields
     private String firstNameValue;
@@ -15,30 +9,16 @@ public class WebTableModel {
     private String ageValue;
     private String salaryValue;
     private String departmentValue;
-
     private String editFirstNameValue;
     private String editLastNameValue;
     private String editEmailValue;
     private String editSalaryValue;
     private String editDepartmentValue;
 
-    public WebTableModel(String jsonFilePath){
-        populateObject(jsonFilePath);
+    public WebTableModel(String jsonFilePath) {
+        super(jsonFilePath);
     }
 
-    public void populateObject(String jsonFilePath) {
-        ObjectMapper objectMapper = new ObjectMapper();
-        try {
-            // Read JSON file and directly update the current instance of WebTableModel
-            objectMapper.readerForUpdating(this)
-                    .readValue(Files.readAllBytes(Paths.get(jsonFilePath)));
-
-        } catch (IOException e) {
-            e.printStackTrace();  // Handle exceptions as needed
-        }
-    }
-
-    // Getters and Setters for each variable
     public String getFirstNameValue() {
         return firstNameValue;
     }

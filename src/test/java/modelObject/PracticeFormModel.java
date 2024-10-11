@@ -1,13 +1,8 @@
 package modelObject;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.List;
 
-public class PracticeFormModel {
+public class PracticeFormModel extends BaseModel {
 
     // Global variables corresponding to the JSON fields
     private String firstNameValue;
@@ -25,22 +20,9 @@ public class PracticeFormModel {
     private String stateInputValue;
     private String cityInputValue;
 
-    public PracticeFormModel(String jsonFilePath){
-        populateObject(jsonFilePath);
+    public PracticeFormModel(String jsonFilePath) {
+        super(jsonFilePath);
     }
-
-    public void populateObject(String jsonFilePath) {
-        ObjectMapper objectMapper = new ObjectMapper();
-        try {
-            objectMapper.readerForUpdating(this)
-                    .readValue(Files.readAllBytes(Paths.get(jsonFilePath)));
-
-        } catch (IOException e) {
-            e.printStackTrace();  // Handle exceptions as needed
-        }
-    }
-
-    // Getters and Setters for each variable
 
     public String getFirstNameValue() {
         return firstNameValue;

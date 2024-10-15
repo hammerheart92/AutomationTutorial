@@ -2,9 +2,18 @@
 name: ATF Regression Suite
 
 on:
-  push:
-    branches: [ "master" ]
-  
+  workflow_dispatch:
+    inputs:
+      browser:
+        description: 'Choose browser: chrome, edge'
+        required: true
+        default: 'chrome'
+        suite:
+          description: 'Choose suite: regressionSuite, smokeSuite'
+          required: true
+          default: 'smokeSuite'
+
+
 jobs:
   test:
     runs-on: ubuntu-latest

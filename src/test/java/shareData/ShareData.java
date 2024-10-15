@@ -9,7 +9,7 @@ public class ShareData {
     private WebDriver driver;
 
     public void setUpDriver(){
-        String browser = "chrome";
+        String browser = "edge";
 
         switch (browser){
             case "edge":

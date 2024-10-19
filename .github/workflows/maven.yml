@@ -8,23 +8,22 @@ on:
         description: 'Choose browser: chrome, edge'
         required: true
         default: 'chrome'
-        suite:
-          description: 'Choose suite: regressionSuite, smokeSuite'
-          required: true
-          default: 'smokeSuite'
-
+      suite:
+        description: 'Choose suite: regressionSuite, smokeSuite'
+        required: true
+        default: 'smokeSuite'
 
 jobs:
   test:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
-    - name: Set up JDK 17
-      uses: actions/setup-java@v4
-      with:
-        java-version: '17'
-        distribution: 'temurin'
-        cache: maven
-    - name: Run automation tests
-      run: mvn clean install
+      - uses: actions/checkout@v4
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
+      - name: Run automation tests
+        run: mvn clean install

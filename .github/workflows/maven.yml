@@ -26,4 +26,4 @@ jobs:
           distribution: 'temurin'
           cache: maven
       - name: Run automation tests
-        run: mvn clean install -DciCd=true -Dbrowser=${{ github.event.inputs.browser }}
+        run: mvn clean install -DciCd=true -Dbrowser=${{ github.event.inputs.browser }} -DsuiteXmlFile=suites/${{ github.event.inputs.suite }}.xml -P

@@ -1,5 +1,5 @@
 
-name: ATF Regression Suite
+name: ATF Custom Suite
 
 on:
   workflow_dispatch:

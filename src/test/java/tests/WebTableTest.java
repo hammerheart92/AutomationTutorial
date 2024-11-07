@@ -1,5 +1,6 @@
 package tests;
 
+import configFiles.DataConfig;
 import modelObject.WebTableModel;
 import org.testng.annotations.Test;
 import pages.ElementsPage;
@@ -12,7 +13,7 @@ public class WebTableTest extends Hooks {
     @Test
     public void metodaTest() {
 
-        WebTableModel testData = new WebTableModel("src/test/resources/inputData/WebTableResource.json");
+        WebTableModel testData = new WebTableModel(DataConfig.WEBTABLE_DATA);
 
         HomePage homePage = new HomePage(getDriver());
         homePage.clickElements();

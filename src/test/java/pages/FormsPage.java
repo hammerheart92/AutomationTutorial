@@ -1,5 +1,6 @@
 package pages;
 
+import loggerUtility.LoggerUtility;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -15,6 +16,6 @@ public class FormsPage extends BasePage {
 
     public void clickPracticeFormSubMenu(){
         elementMethods.clickJSElement(practiceFormsSubMenu);
-        loggerUtility.infoLog("the user clicks on Practice Form subMenu ");
+        LoggerUtility.infoLog("the user clicks on Practice Form subMenu ");
     }
 }

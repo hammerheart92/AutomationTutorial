@@ -1,6 +1,7 @@
 package modelObject;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.SneakyThrows;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -12,14 +13,10 @@ public class BaseModel {
         populateObject(jsonFilePath);
     }
 
+    @SneakyThrows(IOException.class)
     public void populateObject(String jsonFilePath) {
         ObjectMapper objectMapper = new ObjectMapper();
-        try {
-            objectMapper.readerForUpdating(this)
-                    .readValue(Files.readAllBytes(Paths.get(jsonFilePath)));
-
-        } catch (IOException e) {
-            e.printStackTrace();  // Handle exceptions as needed
-        }
+        objectMapper.readerForUpdating(this)
+                .readValue(Files.readAllBytes(Paths.get(jsonFilePath)));
     }
 }

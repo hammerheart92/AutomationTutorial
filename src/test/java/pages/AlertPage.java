@@ -1,5 +1,7 @@
 package pages;
 
+
+import loggerUtility.LoggerUtility;
 import modelObject.AlertModel;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -22,21 +24,21 @@ public class AlertPage extends BasePage {
 
     public void dealAlertProcess(AlertModel testData){
         elementMethods.clickElement(okAlert);
-        loggerUtility.infoLog("the user clicks on alertOk ");
+        LoggerUtility.infoLog("the user clicks on alertOk ");
         alertMethods.acceptAlert();
-        loggerUtility.infoLog("the user accepts the Alert ");
+        LoggerUtility.infoLog("the user accepts the Alert ");
         elementMethods.clickElement(timerAlertButtonElement);
-        loggerUtility.infoLog("the user clicks on timerAlert ");
+        LoggerUtility.infoLog("the user clicks on timerAlert ");
         alertMethods.acceptAlert();
-        loggerUtility.infoLog("the user accepts the Alert ");
+        LoggerUtility.infoLog("the user accepts the Alert ");
         elementMethods.clickElement(confirmAlert);
-        loggerUtility.infoLog("the user clicks on alertConfirm ");
+        LoggerUtility.infoLog("the user clicks on alertConfirm ");
         alertMethods.dismissAlert();
-        loggerUtility.infoLog("the user dismissed the Alert ");
+        LoggerUtility.infoLog("the user dismissed the Alert ");
         elementMethods.clickElement(promtButtonAlert);
-        loggerUtility.infoLog("the user clicks on  promptAlert ");
+        LoggerUtility.infoLog("the user clicks on  promptAlert ");
         alertMethods.fillAlert(testData.getAlertText());
-        loggerUtility.infoLog("the user fills the alert display with "+ testData.getAlertText() +"values and accepts it");
+        LoggerUtility.infoLog("the user fills the alert display with "+ testData.getAlertText() +"values and accepts it");
 
     }
 

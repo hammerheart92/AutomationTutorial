@@ -1,5 +1,6 @@
 package tests;
 
+import configFiles.DataConfig;
 import modelObject.PracticeFormModel;
 import org.testng.annotations.Test;
 import pages.FormsPage;
@@ -12,7 +13,7 @@ public class PracticeFormTest extends Hooks {
     @Test
     public void metodaTest() {
 
-        PracticeFormModel testData = new PracticeFormModel("src/test/resources/inputData/PracticeFormResource.json");
+        PracticeFormModel testData = new PracticeFormModel(DataConfig.PRACTICEFORM_DATA);
 
         HomePage homePage = new HomePage(getDriver());
         homePage.clickFormsMenu();

@@ -1,5 +1,6 @@
 package pages;
 
+import loggerUtility.LoggerUtility;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -17,10 +18,10 @@ public class NestedFramePage extends BasePage {
 
     public void dealNestedFrame(){
         frameMethods.switchToSpecificIframe("frame1");
-        loggerUtility.infoLog("the user switches to a specific parent Iframe ");
+        LoggerUtility.infoLog("the user switches to a specific parent Iframe ");
         frameMethods.switchToSpecificIframe(childIFrame);
-        loggerUtility.infoLog("the user switches to a specific child Iframe ");
+        LoggerUtility.infoLog("the user switches to a specific child Iframe ");
         System.out.println(childSampleText.getText());
-        loggerUtility.infoLog("the user interacts with an element within Iframe ");
+        LoggerUtility.infoLog("the user interacts with an element within Iframe ");
     }
 }

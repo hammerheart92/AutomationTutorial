@@ -1,11 +1,13 @@
 package shareData.browserService;
 
+import lombok.Getter;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 
 import java.time.Duration;
 
+@Getter
 public class EdgeService implements BrowserService{
     private WebDriver driver;
 
@@ -31,7 +33,4 @@ public class EdgeService implements BrowserService{
         return options;
     }
 
-    public WebDriver getDriver() {
-        return driver;
-    }
 }

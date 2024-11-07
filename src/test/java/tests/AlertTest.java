@@ -1,5 +1,6 @@
 package tests;
 
+import configFiles.DataConfig;
 import modelObject.AlertModel;
 import org.testng.annotations.Test;
 import pages.AlertFrameWindowPage;
@@ -12,7 +13,7 @@ public class AlertTest extends Hooks {
     @Test
     public void metodaTest() {
 
-        AlertModel testData = new AlertModel("src/test/resources/inputData/AlertResource.json");
+        AlertModel testData = new AlertModel(DataConfig.ALERT_DATA);
 
         HomePage homePage = new HomePage(getDriver());
         homePage.clickAlertFrameWindow();

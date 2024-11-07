@@ -1,5 +1,10 @@
 package modelObject;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class AlertModel extends BaseModel {
     private String alertText;
 
@@ -7,11 +12,4 @@ public class AlertModel extends BaseModel {
         super(jsonFilePath);
     }
 
-    public String getAlertText() {
-        return alertText;
-    }
-
-    public void setAlertText(String alertText) {
-        this.alertText = alertText;
-    }
 }

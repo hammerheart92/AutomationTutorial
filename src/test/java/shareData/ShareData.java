@@ -1,9 +1,11 @@
 package shareData;
 
+import lombok.Getter;
 import org.openqa.selenium.WebDriver;
 import shareData.browserService.ChromeService;
 import shareData.browserService.EdgeService;
 
+@Getter
 public class ShareData {
 
     private WebDriver driver;
@@ -22,10 +24,6 @@ public class ShareData {
                 driver = chromeService.getDriver();
                 break;
         }
-    }
-
-    public WebDriver getDriver() {
-        return driver;
     }
 
     public void quitDriver(){

@@ -1,11 +1,13 @@
 package shareData.browserService;
 
+import lombok.Getter;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.time.Duration;
 
+@Getter
 public class ChromeService implements BrowserService{
     private WebDriver driver;
 
@@ -31,7 +33,4 @@ public class ChromeService implements BrowserService{
         return options;
     }
 
-    public WebDriver getDriver() {
-        return driver;
-    }
 }

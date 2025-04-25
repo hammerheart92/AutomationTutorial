@@ -4,7 +4,6 @@ import helpMethods.AlertMethods;
 import helpMethods.ElementMethods;
 import helpMethods.FrameMethods;
 import helpMethods.TabMethods;
-import loggerUtility.LoggerUtility;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 

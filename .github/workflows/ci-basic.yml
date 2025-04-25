@@ -23,7 +23,7 @@ jobs:
           java-version: '17'
 
       - name: Build with Maven
-        run: mvn install
+        run: mvn install -Dcicd=true
 
       - name: Run Tests
-        run: mvn test
+        run: mvn test -Dcicd=true

@@ -22,9 +22,9 @@ public class ChromeService implements BrowserService{
 
     @Override
     public ChromeOptions prepareOptions() {
-        boolean ciCd = Boolean.parseBoolean(System.getProperty("ciCd"));
+        boolean cicd = Boolean.parseBoolean(System.getProperty("ciCd"));
         ChromeOptions options = new ChromeOptions();
-        if (ciCd) {
+        if (cicd) {
             options.addArguments("--headless=new"); // Run in headless mode for CI
         }
         options.addArguments("--no-sandbox"); // Required for GitHub Actions

@@ -22,9 +22,9 @@ public class EdgeService implements BrowserService{
 
     @Override
     public EdgeOptions prepareOptions() {
-        boolean ciCd = Boolean.parseBoolean(System.getProperty("ciCd"));
+        boolean cicd = Boolean.parseBoolean(System.getProperty("ciCd"));
         EdgeOptions options = new EdgeOptions();
-        if (ciCd) {
+        if (cicd) {
             options.addArguments("--headless=new"); // Run in headless mode for CI
         }
         options.addArguments("--no-sandbox"); // Required for GitHub Actions

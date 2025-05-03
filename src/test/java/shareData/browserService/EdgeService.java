@@ -22,7 +22,7 @@ public class EdgeService implements BrowserService{
 
     @Override
     public EdgeOptions prepareOptions() {
-        boolean cicd = Boolean.parseBoolean(System.getProperty("ciCd"));
+        boolean cicd = Boolean.parseBoolean(System.getProperty("cicd"));
         EdgeOptions options = new EdgeOptions();
         if (cicd) {
             options.addArguments("--headless=new"); // Run in headless mode for CI

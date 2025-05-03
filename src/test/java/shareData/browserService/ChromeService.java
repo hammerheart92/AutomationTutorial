@@ -22,7 +22,7 @@ public class ChromeService implements BrowserService{
 
     @Override
     public ChromeOptions prepareOptions() {
-        boolean cicd = Boolean.parseBoolean(System.getProperty("ciCd"));
+        boolean cicd = Boolean.parseBoolean(System.getProperty("cicd"));
         ChromeOptions options = new ChromeOptions();
         if (cicd) {
             options.addArguments("--headless=new"); // Run in headless mode for CI

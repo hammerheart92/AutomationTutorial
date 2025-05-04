@@ -11,7 +11,7 @@ import shareData.Hooks;
 public class WebTableTest extends Hooks {
 
     @Test
-    public void metodaTest() {
+    public void testMethod() {
 
         WebTableModel testData = new WebTableModel(DataConfig.WEBTABLE_DATA);
 

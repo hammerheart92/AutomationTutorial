@@ -9,7 +9,7 @@ import shareData.Hooks;
 public class TabWindowsTest extends Hooks {
 
     @Test
-    public void metodaTest() {
+    public void testMethod() {
 
         HomePage homePage = new HomePage(getDriver());
         homePage.clickAlertFrameWindow();

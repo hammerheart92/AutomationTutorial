@@ -14,9 +14,16 @@ public class ElementsPage extends BasePage {
 
     @FindBy(xpath = "//span[text()='Web Tables']")
     private WebElement webTableSubMenu;
+    @FindBy(xpath = "//span[text()='Text Box']")
+    private WebElement textBoxSubMenu;
 
     public void clickWebTable(){
         elementMethods.clickJSElement(webTableSubMenu);
         LoggerUtility.infoLog("the user click on Web Table subMenu ");
+    }
+
+    public void clickTextBox(){
+        elementMethods.clickJSElement(textBoxSubMenu);
+        LoggerUtility.infoLog("the user clicks on Text Box subMenu");
     }
 }

@@ -11,7 +11,7 @@ import shareData.Hooks;
 public class AlertTest extends Hooks {
 
     @Test
-    public void metodaTest() {
+    public void testMethod() {
 
         AlertModel testData = new AlertModel(DataConfig.ALERT_DATA);
 

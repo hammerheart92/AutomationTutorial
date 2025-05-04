@@ -6,6 +6,7 @@
             <class name = "tests.FrameTest" />
             <class name = "tests.WebTableTest" />
             <class name = "tests.TabWindowsTest" />
+            <class name = "tests.TextBoxTest" />
         </classes>
     </test>
 </suite>

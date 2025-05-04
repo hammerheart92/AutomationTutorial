@@ -11,7 +11,7 @@ import shareData.Hooks;
 public class PracticeFormTest extends Hooks {
 
     @Test
-    public void metodaTest() {
+    public void testMethod() {
 
         PracticeFormModel testData = new PracticeFormModel(DataConfig.PRACTICEFORM_DATA);
 

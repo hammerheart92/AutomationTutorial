@@ -56,7 +56,7 @@ public class WebTablePage extends BasePage {
 
         Assert.assertEquals(tableContentList.size(), tableSize, "Default size for table is not " + tableSize);
         LoggerUtility.infoLog("The user validates the size of table content to be " + tableSize);
-        elementMethods.clickElement(addElement);
+        elementMethods.scrollAndClickJSElement(addElement);
         LoggerUtility.infoLog("The user clicks on Add Element button");
         elementMethods.fillElement(firstNameElement, testData.getFirstNameValue());
         LoggerUtility.infoLog("The user fills First Name field with " + testData.getFirstNameValue() + " value");

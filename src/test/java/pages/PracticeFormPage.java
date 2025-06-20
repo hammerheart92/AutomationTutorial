@@ -81,7 +81,7 @@ public class PracticeFormPage extends BasePage {
         }
         elementMethods.fillElement(mobileNumberElement, testData.getMobileNumberValue());
         LoggerUtility.infoLog("The user fills the Mobile number field with " + testData.getMobileNumberValue() + " value");
-        elementMethods.clickElement(dateOfBirthElement);
+        elementMethods.scrollAndClickJSElement(dateOfBirthElement);
         LoggerUtility.infoLog("The user clicks on Date of Birth option");
         elementMethods.selectDropdownElement(monthElement, testData.getMonthValue());
         LoggerUtility.infoLog("The user selects month option: " + testData.getMonthValue());

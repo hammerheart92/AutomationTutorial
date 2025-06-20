@@ -23,7 +23,6 @@ public class AlertTest extends Hooks {
 
         AlertPage alertPage = new AlertPage(getDriver());
         alertPage.dealAlertProcess(testData);
-
     }
 }
 

@@ -27,7 +27,7 @@ public class AlertPage extends BasePage {
         LoggerUtility.infoLog("the user clicks on alertOk ");
         alertMethods.acceptAlert();
         LoggerUtility.infoLog("the user accepts the Alert ");
-        elementMethods.clickElement(timerAlertButtonElement);
+        elementMethods.scrollAndClickJSElement(timerAlertButtonElement);
         LoggerUtility.infoLog("the user clicks on timerAlert ");
         alertMethods.acceptAlert();
         LoggerUtility.infoLog("the user accepts the Alert ");
@@ -39,7 +39,5 @@ public class AlertPage extends BasePage {
         LoggerUtility.infoLog("the user clicks on  promptAlert ");
         alertMethods.fillAlert(testData.getAlertText());
         LoggerUtility.infoLog("the user fills the alert display with "+ testData.getAlertText() +"values and accepts it");
-
     }
-
 }

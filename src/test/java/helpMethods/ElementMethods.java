@@ -55,9 +55,20 @@ public class ElementMethods {
         waitVisibleElement(element);
         element.clear();
         element.sendKeys(text);
-
     }
 
+    public void scrollAndClickJSElement(WebElement element) {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView(true);", element);
+
+        try {
+            Thread.sleep(300); // gives the page time to settle
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
+
+        clickJSElement(element);
+    }
 
     public void clearElement(WebElement element) {
         waitVisibleElement(element);

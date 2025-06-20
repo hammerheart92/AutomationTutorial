@@ -27,5 +27,4 @@ public class WebTableTest extends Hooks {
         webTablePage.editProcess(testData, 3);
         webTablePage.deleteProcess(3);
     }
-
 }

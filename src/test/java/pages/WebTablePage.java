@@ -70,7 +70,7 @@ public class WebTablePage extends BasePage {
         LoggerUtility.infoLog("The user fills Salary field with " + testData.getSalaryValue() + " value ");
         elementMethods.fillElement(departmentElement, testData.getDepartmentValue());
         LoggerUtility.infoLog("The user fills Department field with " + testData.getDepartmentValue() + " value ");
-        elementMethods.clickElement(submitElement);
+        elementMethods.scrollAndClickJSElement(submitElement);
         LoggerUtility.infoLog("The user clicks on Submit button");
         Assert.assertEquals(newTableContentList.size(), tableSize + 1, "Default size for table is not " + tableSize + 1);
         LoggerUtility.infoLog("The user validates the size of table content to be " +tableSize + 1);

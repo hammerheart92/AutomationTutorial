@@ -11,10 +11,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Install Chrome 124
+      - name: Install stable Chrome
         run: |
-          wget https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_124.0.6367.60-1_amd64.deb
-          sudo apt install ./google-chrome-stable_124.0.6367.60-1_amd64.deb
+          sudo apt purge google-chrome-stable
+          wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+          sudo apt install ./google-chrome-stable_current_amd64.deb
 
       - name: Set up JDK 21
         uses: actions/setup-java@v4

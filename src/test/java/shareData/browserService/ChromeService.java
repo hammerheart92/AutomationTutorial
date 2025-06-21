@@ -19,7 +19,21 @@ public class ChromeService implements BrowserService {
     public void openBrowser() {
         ChromeOptions options = prepareOptions();
         driver = new ChromeDriver(options);
-        driver.get("https://demoqa.com/");
+        // Retry wrapper for stability in CI
+        int attempts = 0;
+        while (attempts < 3) {
+            try {
+                driver.get("https://demoqa.com/");
+                break;
+            } catch (Exception e) {
+                attempts++;
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException ie) {
+                    Thread.currentThread().interrupt();
+                }
+            }
+        }
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
@@ -30,7 +44,7 @@ public class ChromeService implements BrowserService {
         ChromeOptions options = new ChromeOptions();
 
         if (cicd) {
-            options.addArguments("--headless");
+            options.addArguments("--headless=chrome");
             options.addArguments("--disable-gpu");
             options.addArguments("--disable-extensions");
             options.addArguments("--disable-software-rasterizer");

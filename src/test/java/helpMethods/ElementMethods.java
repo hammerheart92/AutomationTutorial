@@ -76,13 +76,27 @@ public class ElementMethods {
                 "document.querySelectorAll('iframe').forEach(el => el.style.display = 'none');");
     }
 
+    public void removeAdIframes() {
+        ((JavascriptExecutor) driver).executeScript(
+                "document.querySelectorAll('iframe[id^=\"google_ads_iframe\"], iframe[src*=\"safeframe\"], iframe[title=\"3rd party ad content\"]').forEach(el => el.remove());"
+        );
+    }
+
+
     //  Retry click if StaleElementReferenceException is thrown
     public void safeClick(WebElement element) {
         try {
+            removeAdIframes(); // AD block first!
             element.click();
+        } catch (ElementClickInterceptedException e) {
+            removeAdIframes(); // Retry after cleanup
+            new WebDriverWait(driver, Duration.ofSeconds(5))
+                    .until(ExpectedConditions.elementToBeClickable(element))
+                    .click();
         } catch (StaleElementReferenceException e) {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-            wait.until(ExpectedConditions.elementToBeClickable(element)).click();
+            new WebDriverWait(driver, Duration.ofSeconds(5))
+                    .until(ExpectedConditions.elementToBeClickable(element))
+                    .click();
         }
     }
 

@@ -103,7 +103,7 @@ public class WebTablePage extends BasePage {
         LoggerUtility.infoLog("The user clears and fills the Salary field with " + testData.getEditSalaryValue() + " value");
         elementMethods.clearEditElement(editDepartmentElement, testData.getEditDepartmentValue());
         LoggerUtility.infoLog("The user clears and fills the Department field with " + testData.getEditDepartmentValue() + " value");
-        elementMethods.clickElement(editSubmitElement);
+        elementMethods.scrollAndClickJSElement(editSubmitElement);
         LoggerUtility.infoLog("The user clicks on Submit button ");
 
         String rowContent = newTableContentList.get(tableSize).getText();

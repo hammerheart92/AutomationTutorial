@@ -15,17 +15,28 @@ public class NestedFramePage extends BasePage {
     @FindBy(tagName = "p")
     private WebElement childSampleText;
 
-    public void dealNestedFrame(){
+    public void dealNestedFrame() {
+        // Switch to parent iframe by name
         frameMethods.switchToSpecificIframe("frame1");
-        LoggerUtility.infoLog("the user switches to a specific parent Iframe ");
+        LoggerUtility.infoLog("The user switches to the parent iframe");
 
+        // Wait for the child iframe to be visible inside the parent iframe
+        elementMethods.waitVisibleElement(childIFrame);
+        LoggerUtility.infoLog("Waiting for the child iframe to be visible");
+
+        // Switch to the child iframe using the WebElement
         frameMethods.switchToSpecificIframe(childIFrame);
-        LoggerUtility.infoLog("the user switches to a specific child Iframe ");
+        LoggerUtility.infoLog("The user switches to the child iframe");
+
+        // Wait for the paragraph element inside the child iframe
+        elementMethods.waitVisibleElement(childSampleText);
+        LoggerUtility.infoLog("Waiting for the sample text to be visible");
 
         System.out.println(childSampleText.getText());
-        LoggerUtility.infoLog("the user interacts with an element within Iframe ");
+        LoggerUtility.infoLog("The user interacts with the element within the child iframe");
 
+        // Go back to the main document
         frameMethods.switchToDefaultIframe();
-        LoggerUtility.infoLog("the user switches back to default content ");
+        LoggerUtility.infoLog("The user switches back to default content");
     }
 }

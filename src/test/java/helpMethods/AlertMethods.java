@@ -13,7 +13,7 @@ public class AlertMethods {
     public WebDriver driver;
 
     public void waitForAlert(){
-        WebDriverWait waitExplicit = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebDriverWait waitExplicit = new WebDriverWait(driver, Duration.ofSeconds(15));
         waitExplicit.until(ExpectedConditions.alertIsPresent());
     }
 

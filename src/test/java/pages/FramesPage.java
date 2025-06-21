@@ -19,22 +19,29 @@ public class FramesPage extends BasePage {
 
     public void dealFirstIFrame(){
         frameMethods.switchToSpecificIframe("frame1");
-        LoggerUtility.infoLog("the user switches to specific Iframe");
+        LoggerUtility.infoLog("The user switches to the first iframe");
 
-        WebElement sampleTextElement = driver.findElement(By.id("sampleHeading"));
+        elementMethods.waitVisibleElement(sampleTextElement);
+        LoggerUtility.infoLog("The user waits for the element inside the first iframe");
+
         System.out.println(sampleTextElement.getText());
-        LoggerUtility.infoLog("the user interacts with an element within Iframe");
+        LoggerUtility.infoLog("The user reads text inside the first iframe");
 
         frameMethods.switchToParentIframe();
-        LoggerUtility.infoLog("the user switches to parent frame ");
+        LoggerUtility.infoLog("The user switches back to the parent frame");
     }
 
     public void dealSecondIFrame(){
         frameMethods.switchToSpecificIframe("frame2");
-        LoggerUtility.infoLog("the user switches to specific Iframe ");
+        LoggerUtility.infoLog("The user switches to the second iframe");
 
-        WebElement secondSampleTextElement = driver.findElement(By.id("sampleHeading"));
-        System.out.println(secondSampleTextElement.getText());
-        LoggerUtility.infoLog("the user interacts with an element within Iframe ");
+        elementMethods.waitVisibleElement(sampleTextElement); // Reuse same locator, if valid
+        LoggerUtility.infoLog("The user waits for the element inside the second iframe");
+
+        System.out.println(sampleTextElement.getText());
+        LoggerUtility.infoLog("The user reads text inside the second iframe");
+
+        frameMethods.switchToParentIframe();
+        LoggerUtility.infoLog("The user switches back to the parent frame");
     }
 }

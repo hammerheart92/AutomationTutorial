@@ -57,7 +57,8 @@ public class WebTablePage extends BasePage {
 
         Assert.assertEquals(tableContentList.size(), tableSize, "Default size for table is not " + tableSize);
         LoggerUtility.infoLog("The user validates the size of table content to be " + tableSize);
-        elementMethods.scrollAndClickJSElement(addElement);
+        elementMethods.waitVisibleElement(addElement);
+        elementMethods.safeClick(addElement);
         LoggerUtility.infoLog("The user clicks on Add Element button");
         elementMethods.fillElement(firstNameElement, testData.getFirstNameValue());
         LoggerUtility.infoLog("The user fills First Name field with " + testData.getFirstNameValue() + " value");
@@ -71,7 +72,8 @@ public class WebTablePage extends BasePage {
         LoggerUtility.infoLog("The user fills Salary field with " + testData.getSalaryValue() + " value ");
         elementMethods.fillElement(departmentElement, testData.getDepartmentValue());
         LoggerUtility.infoLog("The user fills Department field with " + testData.getDepartmentValue() + " value ");
-        elementMethods.scrollAndClickJSElement(submitElement);
+        elementMethods.waitVisibleElement(submitElement);
+        elementMethods.safeClick(submitElement);
         LoggerUtility.infoLog("The user clicks on Submit button");
         Assert.assertEquals(newTableContentList.size(), tableSize + 1, "Default size for table is not " + tableSize + 1);
         LoggerUtility.infoLog("The user validates the size of table content to be " +tableSize + 1);
@@ -107,7 +109,8 @@ public class WebTablePage extends BasePage {
         LoggerUtility.infoLog("The user clears and fills the Salary field with " + testData.getEditSalaryValue() + " value");
         elementMethods.clearEditElement(editDepartmentElement, testData.getEditDepartmentValue());
         LoggerUtility.infoLog("The user clears and fills the Department field with " + testData.getEditDepartmentValue() + " value");
-        elementMethods.scrollAndClickJSElement(editSubmitElement);
+        elementMethods.waitVisibleElement(editSubmitElement);
+        elementMethods.safeClick(editSubmitElement);
         LoggerUtility.infoLog("The user clicks on Submit button ");
 
         List<WebElement> updatedTableList = driver.findElements(
@@ -129,7 +132,8 @@ public class WebTablePage extends BasePage {
 
     public void deleteProcess(int tableSize){
 
-        elementMethods.clickJSElement(deleteElement);
+        elementMethods.waitVisibleElement(deleteElement);
+        elementMethods.safeClick(deleteElement);
         LoggerUtility.infoLog("The user clicks on Delete element");
         List<WebElement> updatedTableList = driver.findElements(
                 By.xpath("//div[@class='rt-tbody']/div/div[@class='rt-tr -odd' or @class='rt-tr -even']")

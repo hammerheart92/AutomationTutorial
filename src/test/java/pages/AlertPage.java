@@ -23,21 +23,25 @@ public class AlertPage extends BasePage {
     private WebElement promptButtonAlert;
 
     public void dealAlertProcess(AlertModel testData){
+        elementMethods.waitUntilClickable(okAlert);
         elementMethods.safeClick(okAlert);
         LoggerUtility.infoLog("the user clicks on alertOk ");
         alertMethods.acceptAlert();
         LoggerUtility.infoLog("the user accepts the Alert ");
 
+        elementMethods.waitVisibleElement(timerAlertButtonElement);
         elementMethods.safeClick(timerAlertButtonElement);
         LoggerUtility.infoLog("the user clicks on timerAlert ");
         alertMethods.acceptAlert();
         LoggerUtility.infoLog("the user accepts the Alert ");
 
+        elementMethods.waitUntilClickable(confirmAlert);
         elementMethods.safeClick(confirmAlert);
         LoggerUtility.infoLog("the user clicks on alertConfirm ");
         alertMethods.dismissAlert();
         LoggerUtility.infoLog("the user dismissed the Alert ");
 
+        elementMethods.waitUntilClickable(promptButtonAlert);
         elementMethods.safeClick(promptButtonAlert);
         LoggerUtility.infoLog("the user clicks on promptAlert ");
         alertMethods.fillAlert(testData.getAlertText());

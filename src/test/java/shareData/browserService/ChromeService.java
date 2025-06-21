@@ -24,15 +24,28 @@ public class ChromeService implements BrowserService{
     public ChromeOptions prepareOptions() {
         boolean cicd = Boolean.parseBoolean(System.getProperty("cicd"));
         ChromeOptions options = new ChromeOptions();
-        if (cicd) {
-            options.addArguments("--headless=new"); // Run in headless mode for CI
 
+        if (cicd) {
+            // Use Chromium explicitly for GitHub Actions
+            options.setBinary("/usr/bin/chromium-browser");
+
+            // More stable headless config
+            options.addArguments("--headless");
+            options.addArguments("--disable-gpu");
+            options.addArguments("--disable-extensions");
+            options.addArguments("--disable-software-rasterizer");
+            options.addArguments("--remote-debugging-port=9222");
+
+            // Optional: Create isolated user profile if needed
             String tempProfileDir = "/tmp/chrome-profile-" + System.currentTimeMillis();
             options.addArguments("--user-data-dir=" + tempProfileDir);
         }
-        options.addArguments("--no-sandbox"); // Required for GitHub Actions
-        options.addArguments("--disable-dev-shm-usage"); // Prevents memory issues
-        options.addArguments("--window-size=1920,1080"); // Set a default window size
+
+        // Shared settings (for both local and CI)
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--window-size=1920,1080");
+
         return options;
     }
 }

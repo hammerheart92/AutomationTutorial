@@ -22,6 +22,7 @@ public class ShareData {
                 ChromeService chromeService = new ChromeService();
                 chromeService.openBrowser();
                 driver = chromeService.getDriver();
+                System.out.println("Chrome version in use: " + ((org.openqa.selenium.remote.RemoteWebDriver) driver).getCapabilities().getBrowserVersion());
                 break;
         }
     }

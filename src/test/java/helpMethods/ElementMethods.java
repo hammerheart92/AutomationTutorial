@@ -70,6 +70,11 @@ public class ElementMethods {
         clickJSElement(element);
     }
 
+    public void hideAllIframes() {
+        ((JavascriptExecutor) driver).executeScript(
+                "document.querySelectorAll('iframe').forEach(el => el.style.display = 'none');");
+    }
+
     public void clearElement(WebElement element) {
         waitVisibleElement(element);
         element.clear();

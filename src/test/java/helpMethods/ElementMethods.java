@@ -1,10 +1,7 @@
 package helpMethods;
 
 import lombok.AllArgsConstructor;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -79,9 +76,14 @@ public class ElementMethods {
                 "document.querySelectorAll('iframe').forEach(el => el.style.display = 'none');");
     }
 
+    //  Retry click if StaleElementReferenceException is thrown
     public void safeClick(WebElement element) {
-        hideAllIframes();
-        scrollAndClickJSElement(element);
+        try {
+            element.click();
+        } catch (StaleElementReferenceException e) {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+            wait.until(ExpectedConditions.elementToBeClickable(element)).click();
+        }
     }
 
     public void clearElement(WebElement element) {

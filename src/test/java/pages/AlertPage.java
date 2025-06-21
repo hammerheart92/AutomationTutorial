@@ -23,25 +23,24 @@ public class AlertPage extends BasePage {
     private WebElement promptButtonAlert;
 
     public void dealAlertProcess(AlertModel testData){
-        elementMethods.hideAllIframes();
-        elementMethods.clickElement(okAlert);
+        elementMethods.safeClick(okAlert);
         LoggerUtility.infoLog("the user clicks on alertOk ");
         alertMethods.acceptAlert();
         LoggerUtility.infoLog("the user accepts the Alert ");
-        elementMethods.hideAllIframes();
-        elementMethods.scrollAndClickJSElement(timerAlertButtonElement);
+
+        elementMethods.safeClick(timerAlertButtonElement);
         LoggerUtility.infoLog("the user clicks on timerAlert ");
         alertMethods.acceptAlert();
         LoggerUtility.infoLog("the user accepts the Alert ");
-        elementMethods.hideAllIframes();
-        elementMethods.scrollAndClickJSElement(confirmAlert);
+
+        elementMethods.safeClick(confirmAlert);
         LoggerUtility.infoLog("the user clicks on alertConfirm ");
         alertMethods.dismissAlert();
         LoggerUtility.infoLog("the user dismissed the Alert ");
-        elementMethods.hideAllIframes();
-        elementMethods.clickElement(promptButtonAlert);
-        LoggerUtility.infoLog("the user clicks on  promptAlert ");
+
+        elementMethods.safeClick(promptButtonAlert);
+        LoggerUtility.infoLog("the user clicks on promptAlert ");
         alertMethods.fillAlert(testData.getAlertText());
-        LoggerUtility.infoLog("the user fills the alert display with "+ testData.getAlertText() +"values and accepts it");
+        LoggerUtility.infoLog("the user fills the alert display with " + testData.getAlertText() + " values and accepts it");
     }
 }

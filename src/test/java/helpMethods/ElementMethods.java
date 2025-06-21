@@ -75,6 +75,11 @@ public class ElementMethods {
                 "document.querySelectorAll('iframe').forEach(el => el.style.display = 'none');");
     }
 
+    public void safeClick(WebElement element) {
+        hideAllIframes();
+        scrollAndClickJSElement(element);
+    }
+
     public void clearElement(WebElement element) {
         waitVisibleElement(element);
         element.clear();

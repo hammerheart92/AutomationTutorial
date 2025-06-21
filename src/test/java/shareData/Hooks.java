@@ -1,23 +1,22 @@
 package shareData;
 
 import loggerUtility.LoggerUtility;
-import org.testng.ITestResult;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+
 public class Hooks extends ShareData {
-    
-    public String testClassName;
-    @BeforeMethod
-    public void prepareEnvironment(){
+
+    private String testClassName;
+
+    @BeforeClass
+    public void prepareEnvironment() {
         testClassName = this.getClass().getSimpleName();
         setUpDriver();
         LoggerUtility.startTest(testClassName);
     }
-    @AfterMethod
-    public void clearEnvironment(ITestResult result){
-        if (!result.isSuccess()){
-            LoggerUtility.errorLog(result.getThrowable().getMessage());
-        }
+
+    @AfterClass
+    public void clearEnvironment() {
         quitDriver();
         LoggerUtility.finishtTest(testClassName);
     }

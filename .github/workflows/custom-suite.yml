@@ -28,11 +28,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Install stable Chromium
+      - name: Install stable Chrome 126
         run: |
-          sudo apt-get update
-          sudo apt-get install -y chromium-browser
-          sudo ln -sf /usr/bin/chromium-browser /usr/bin/google-chrome
+          sudo apt purge google-chrome-stable
+          wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+          sudo apt install ./google-chrome-stable_current_amd64.deb
 
       - name: Set up JDK 21
         uses: actions/setup-java@v4

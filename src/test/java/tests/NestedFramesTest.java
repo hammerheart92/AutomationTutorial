@@ -19,6 +19,5 @@ public class NestedFramesTest extends Hooks {
 
         NestedFramePage nestedFramePage = new NestedFramePage(getDriver());
         nestedFramePage.dealNestedFrame();
-
     }
 }

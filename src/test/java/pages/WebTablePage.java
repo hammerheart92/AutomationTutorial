@@ -2,6 +2,7 @@ package pages;
 
 import loggerUtility.LoggerUtility;
 import modelObject.WebTableModel;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -75,8 +76,11 @@ public class WebTablePage extends BasePage {
         Assert.assertEquals(newTableContentList.size(), tableSize + 1, "Default size for table is not " + tableSize + 1);
         LoggerUtility.infoLog("The user validates the size of table content to be " +tableSize + 1);
 
-        //validam datele
-        String rowContent = newTableContentList.get(tableSize).getText();
+        //we validate the data
+        List<WebElement> updatedTableList = driver.findElements(
+                By.xpath("//div[@class='rt-tbody']/div/div[@class='rt-tr -odd' or @class='rt-tr -even']")
+        );
+        String rowContent = updatedTableList.get(tableSize).getText();
         Assert.assertTrue(rowContent.contains(testData.getFirstNameValue()), "The last row doesn't contain first name value.");
         LoggerUtility.infoLog("The user validates the presence of " + testData.getFirstNameValue() + " value of the table content");
         Assert.assertTrue(rowContent.contains(testData.getLastNameValue()), "The last row doesn't contain last name value.");
@@ -106,7 +110,10 @@ public class WebTablePage extends BasePage {
         elementMethods.scrollAndClickJSElement(editSubmitElement);
         LoggerUtility.infoLog("The user clicks on Submit button ");
 
-        String rowContent = newTableContentList.get(tableSize).getText();
+        List<WebElement> updatedTableList = driver.findElements(
+                By.xpath("//div[@class='rt-tbody']/div/div[@class='rt-tr -odd' or @class='rt-tr -even']")
+        );
+        String rowContent = updatedTableList.get(tableSize).getText();
         System.out.println(rowContent);
         Assert.assertTrue(rowContent.contains(testData.getEditFirstNameValue()), "The last row doesn't contain first name value.");
         LoggerUtility.infoLog("The user validates the presence of " + testData.getEditFirstNameValue() + " value of the table content");
@@ -124,8 +131,10 @@ public class WebTablePage extends BasePage {
 
         elementMethods.clickJSElement(deleteElement);
         LoggerUtility.infoLog("The user clicks on Delete element");
-        Assert.assertEquals(newTableContentList.size(), tableSize, "Default size for table is not " + tableSize);
+        List<WebElement> updatedTableList = driver.findElements(
+                By.xpath("//div[@class='rt-tbody']/div/div[@class='rt-tr -odd' or @class='rt-tr -even']")
+        );
+        Assert.assertEquals(updatedTableList.size(), tableSize, "Default size for table is not " + tableSize);
         LoggerUtility.infoLog("The user validates the size of table content to be " +tableSize);
-
     }
 }

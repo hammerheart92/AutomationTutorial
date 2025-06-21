@@ -30,7 +30,6 @@ public class ChromeService implements BrowserService {
         ChromeOptions options = new ChromeOptions();
 
         if (cicd) {
-            options.setBinary("/usr/bin/chromium-browser");
             options.addArguments("--headless");
             options.addArguments("--disable-gpu");
             options.addArguments("--disable-extensions");

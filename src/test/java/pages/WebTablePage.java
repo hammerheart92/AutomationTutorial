@@ -79,10 +79,10 @@ public class WebTablePage extends BasePage {
         LoggerUtility.infoLog("The user validates the size of table content to be " +tableSize + 1);
 
         //we validate the data
-        List<WebElement> updatedTableList = driver.findElements(
-                By.xpath("//div[@class='rt-tbody']/div/div[@class='rt-tr -odd' or @class='rt-tr -even']")
-        );
-        String rowContent = updatedTableList.get(tableSize).getText();
+        By lastRowLocator = By.xpath("(//div[@class='rt-tbody']/div/div[@class='rt-tr -odd' or @class='rt-tr -even'])[" + (tableSize + 1) + "]");
+        elementMethods.waitTextToBePresentInElement(lastRowLocator, testData.getFirstNameValue());
+
+        String rowContent = driver.findElement(lastRowLocator).getText();
         Assert.assertTrue(rowContent.contains(testData.getFirstNameValue()), "The last row doesn't contain first name value.");
         LoggerUtility.infoLog("The user validates the presence of " + testData.getFirstNameValue() + " value of the table content");
         Assert.assertTrue(rowContent.contains(testData.getLastNameValue()), "The last row doesn't contain last name value.");

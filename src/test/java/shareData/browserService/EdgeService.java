@@ -26,11 +26,13 @@ public class EdgeService implements BrowserService{
         EdgeOptions options = new EdgeOptions();
         if (cicd) {
             options.addArguments("--headless=new"); // Run in headless mode for CI
+
+            String tempProfileDir = "/tmp/chrome-profile-" + System.currentTimeMillis();
+            options.addArguments("--user-data-dir=" + tempProfileDir);
         }
         options.addArguments("--no-sandbox"); // Required for GitHub Actions
         options.addArguments("--disable-dev-shm-usage"); // Prevents memory issues
         options.addArguments("--window-size=1920,1080"); // Set a default window size
         return options;
     }
-
 }

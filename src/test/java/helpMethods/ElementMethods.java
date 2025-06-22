@@ -87,21 +87,18 @@ public class ElementMethods {
         );
     }
 
-
-    //  Retry click if StaleElementReferenceException is thrown
     public void safeClick(WebElement element) {
         try {
             removeAdIframes(); // AD block first!
             element.click();
-        } catch (ElementClickInterceptedException e) {
+        } catch (ElementClickInterceptedException | StaleElementReferenceException e) {
             removeAdIframes(); // Retry after cleanup
             new WebDriverWait(driver, Duration.ofSeconds(5))
-                    .until(ExpectedConditions.elementToBeClickable(element))
-                    .click();
-        } catch (StaleElementReferenceException e) {
-            new WebDriverWait(driver, Duration.ofSeconds(5))
-                    .until(ExpectedConditions.elementToBeClickable(element))
-                    .click();
+                    .until(ExpectedConditions.elementToBeClickable(element));
+
+            // Scroll into view and force JS click
+            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
         }
     }
 

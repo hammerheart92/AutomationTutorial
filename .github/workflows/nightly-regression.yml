@@ -25,8 +25,5 @@ jobs:
       - name: Display Chrome version
         run: chrome --version
 
-      - name: Set Maven executable permission
-        run: chmod +x mvnw
-
       - name: Run Regression Tests
         run: mvn clean install -Dcicd=true -Dbrowser=chrome -DsuiteXmlFile=suites/regressionSuite.xml -P CustomSuite

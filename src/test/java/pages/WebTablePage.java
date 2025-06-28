@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import loggerUtility.LoggerUtility;
 import modelObject.WebTableModel;
 import org.openqa.selenium.By;
@@ -53,6 +54,7 @@ public class WebTablePage extends BasePage {
     @FindBy(id = "delete-record-4")
     private WebElement deleteElement;
 
+    @Step("Create new table record and validate It")
     public void createProcess(WebTableModel testData, int tableSize) {
 
         Assert.assertEquals(tableContentList.size(), tableSize, "Default size for table is not " + tableSize);
@@ -96,6 +98,7 @@ public class WebTablePage extends BasePage {
         LoggerUtility.infoLog("The user validates the presence of " + testData.getDepartmentValue() + " value of the table content");
     }
 
+    @Step("Edit the last created table and validate changes")
     public void editProcess(WebTableModel testData, int tableSize){
 
         elementMethods.clickJSElement(editElement);
@@ -131,6 +134,7 @@ public class WebTablePage extends BasePage {
         LoggerUtility.infoLog("The user validates the presence of " + testData.getEditDepartmentValue() + " value of the table content");
     }
 
+    @Step("Delete the last table record and validate the table size")
     public void deleteProcess(int tableSize){
 
         elementMethods.waitVisibleElement(deleteElement);

@@ -1,9 +1,12 @@
 package shareData;
 
+import io.qameta.allure.testng.AllureTestNg;
 import loggerUtility.LoggerUtility;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 
+@Listeners(AllureTestNg.class)
 public class Hooks extends ShareData {
 
     private String testClassName;

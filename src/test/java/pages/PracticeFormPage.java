@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import loggerUtility.LoggerUtility;
 import modelObject.PracticeFormModel;
 import org.openqa.selenium.Keys;
@@ -58,6 +59,7 @@ public class PracticeFormPage extends BasePage {
     @FindBy(xpath = "//table[@class='table table-dark table-striped table-bordered table-hover']//td[2]")
     private List<WebElement> valuesList;
 
+    @Step("Fill out the entire practice form with provided user data")
     public void fillEntireForm(PracticeFormModel testData) {
         elementMethods.fillElement(fistNameElement, testData.getFirstNameValue());
         LoggerUtility.infoLog("The user fills the First Name field with " + testData.getFirstNameValue() + " value");
@@ -123,6 +125,7 @@ public class PracticeFormPage extends BasePage {
         LoggerUtility.infoLog("The user clicks on Submit button");
     }
 
+    @Step("Validate all form data is displayed correctly in the confirmation modal")
     public void validateFormValues(PracticeFormModel testData) {
 
         elementMethods.waitVisibleElement(thankYouElement);

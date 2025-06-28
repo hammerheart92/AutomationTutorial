@@ -1,6 +1,7 @@
 package tests;
 
 import configFiles.DataConfig;
+import io.qameta.allure.*;
 import modelObject.WebTableModel;
 import org.testng.annotations.Test;
 import pages.ElementsPage;
@@ -9,8 +10,14 @@ import pages.WebTablePage;
 import shareData.Hooks;
 
 public class WebTableTest extends Hooks {
+    @Epic("UI Test Automation")
+    @Feature("WebTable form Handling")
 
-    @Test
+    @Test(description = "Perform Create, Edit, and Delete operations on Web Table")
+    @Story("Manage Web Table entries through UI")
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("This test performs a full cycle of actions on a web table: creating a new row, editing the inserted values, " +
+            "and deleting the row while validating changes at each step.")
     public void testMethod() {
 
         WebTableModel testData = new WebTableModel(DataConfig.WEBTABLE_DATA);

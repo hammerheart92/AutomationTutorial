@@ -1,6 +1,7 @@
 package pages;
 
 
+import io.qameta.allure.Step;
 import loggerUtility.LoggerUtility;
 import modelObject.AlertModel;
 import org.openqa.selenium.WebDriver;
@@ -22,6 +23,7 @@ public class AlertPage extends BasePage {
     @FindBy(id = "promtButton")
     private WebElement promptButtonAlert;
 
+    @Step("Click on alert OK and accept it")
     public void dealAlertProcess(AlertModel testData){
         elementMethods.waitUntilClickable(okAlert);
         elementMethods.safeClick(okAlert);

@@ -34,6 +34,13 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- Allure TestNG Dependency -->
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-testng</artifactId>
+            <version>2.24.0</version>
+        </dependency>
+
         <!-- Log4j Core Dependency -->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
@@ -67,6 +74,13 @@
 
     <build>
         <plugins>
+
+            <plugin>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+                <version>2.11.2</version>
+            </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -75,9 +89,17 @@
                     <systemPropertyVariables>
                         <ciCd>false</ciCd>
                         <browser>${browser}</browser>
+                        <allure.results.directory>target/allure-results</allure.results.directory>
                     </systemPropertyVariables>
+                    <properties>
+                        <property>
+                            <name>listener</name>
+                            <value>io.qameta.allure.testng.AllureTestNg</value>
+                        </property>
+                    </properties>
                 </configuration>
             </plugin>
+
         </plugins>
     </build>
 

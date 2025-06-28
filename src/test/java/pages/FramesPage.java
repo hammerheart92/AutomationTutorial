@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -14,6 +15,7 @@ public class FramesPage extends BasePage {
 
     private final By sampleHeadingLocator = By.id("sampleHeading");
 
+    @Step("Switch to first iframe and validate content")
     public void dealFirstIFrame() {
         frameMethods.switchToSpecificIframe("frame1");
         LoggerUtility.infoLog("The user switches to the first iframe");
@@ -29,6 +31,7 @@ public class FramesPage extends BasePage {
         LoggerUtility.infoLog("The user switches back to the parent frame");
     }
 
+    @Step("Switch to second iframe and validate content")
     public void dealSecondIFrame() {
         frameMethods.switchToSpecificIframe("frame2");
         LoggerUtility.infoLog("The user switches to the second iframe");

@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import loggerUtility.LoggerUtility;
 import modelObject.TextBoxModel;
 import org.openqa.selenium.WebDriver;
@@ -21,6 +22,7 @@ public class TextBoxPage extends BasePage{
     @FindBy(id = "permanentAddress")
     private WebElement permanentAddressElement;
 
+    @Step("Fill in the text box form with test data")
     public void fillTextBoxFieldsWithProvidedData(TextBoxModel testData){
         elementMethods.fillElement(fullNameElement, testData.getFullNameValue());
         LoggerUtility.infoLog("the user fills the Full Name field with " + testData.getFullNameValue() + " value");

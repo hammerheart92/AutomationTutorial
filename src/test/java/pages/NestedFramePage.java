@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import loggerUtility.LoggerUtility;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -15,6 +16,7 @@ public class NestedFramePage extends BasePage {
     @FindBy(tagName = "p")
     private WebElement childSampleText;
 
+    @Step("Handle nested frames and validate content in parent and child iframes")
     public void dealNestedFrame() {
         // Switch to parent iframe by name
         frameMethods.switchToSpecificIframe("frame1");

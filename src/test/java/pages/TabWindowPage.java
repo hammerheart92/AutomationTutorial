@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import loggerUtility.LoggerUtility;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -18,6 +19,7 @@ public class TabWindowPage extends BasePage {
     @FindBy(id = "messageWindowButton")
     private WebElement newWindowMessageElement;
 
+    @Step("Handle tab interaction: open, switch, close")
     public void dealTabProcess() {
         elementMethods.clickJSElement(newTabElement);
         LoggerUtility.infoLog("the user clicks on New Tab button ");
@@ -29,6 +31,7 @@ public class TabWindowPage extends BasePage {
         LoggerUtility.infoLog("the user Switches to next tab ");
     }
 
+    @Step("Handle window interaction: open, switch, close")
     public void dealWindowProcess() {
         elementMethods.clickJSElement(windowButtonElement);
         LoggerUtility.infoLog("the user clicks on New Window button ");

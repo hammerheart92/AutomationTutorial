@@ -80,6 +80,7 @@ public class WebTablePage extends BasePage {
 
         //we validate the data
         By lastRowLocator = By.xpath("(//div[@class='rt-tbody']/div/div[@class='rt-tr -odd' or @class='rt-tr -even'])[" + (tableSize + 1) + "]");
+        elementMethods.waitVisibleElement(firstNameElement);
         elementMethods.waitTextToBePresentInElement(lastRowLocator, testData.getFirstNameValue());
 
         String rowContent = driver.findElement(lastRowLocator).getText();

@@ -19,6 +19,8 @@ public class AlertFrameWindowPage extends BasePage {
     private WebElement framesSubMenu;
     @FindBy(xpath = "//span[text()='Nested Frames']")
     private WebElement nestedFramesSubMenu;
+    @FindBy(xpath = "//span[text()='Modal Dialogs']")
+    private WebElement modalDialogSubMenu;
 
     public void clickAlert(){
         elementMethods.clickJSElement(alertsSubMenu);
@@ -36,5 +38,8 @@ public class AlertFrameWindowPage extends BasePage {
         elementMethods.clickJSElement(nestedFramesSubMenu);
         LoggerUtility.infoLog("the user clicks on Nested Frames subMenu ");
     }
-
+    public void clickModalDialogSubMenu(){
+        elementMethods.clickJSElement(modalDialogSubMenu);
+        LoggerUtility.infoLog("the user click on Modal Dialog subMenu");
+    }
 }

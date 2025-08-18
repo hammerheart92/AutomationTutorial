@@ -4,8 +4,10 @@ target/
 !**/src/test/**/target/
 
 # Allure reports
-allure-results/
-allure-report/
+allure-results/          # ignore raw results
+allure-report/           # ignore any top-level allure-report folder
+!target/allure-report/   # but include the one under target
+!target/allure-report/** # and everything inside it
 
 ### IntelliJ IDEA ###
 .idea/modules.xml

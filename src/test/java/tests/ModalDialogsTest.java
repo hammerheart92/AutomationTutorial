@@ -19,9 +19,11 @@ public class ModalDialogsTest extends Hooks {
     public void testMethod(){
 
         HomePage homePage = new HomePage(getDriver());
+        Allure.step("Navigate to Alerts, Frame & Windows section");
         homePage.clickAlertFrameWindow();
 
         AlertFrameWindowPage alertFrameWindowPage = new AlertFrameWindowPage(getDriver());
+        Allure.step("Open Modal Dialogs submenu");
         alertFrameWindowPage.clickModalDialogSubMenu();
 
         ModalDialogsPage modalDialogsPage = new ModalDialogsPage(getDriver());
